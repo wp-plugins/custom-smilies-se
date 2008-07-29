@@ -258,7 +258,7 @@ function cs_save_smilies($array) {
         return;
     }
 
-    $handle = fopen('../wp-content/plugins/custom-smilies/init.php', 'w');
+    $handle = fopen(CLCSABSPATH . 'init.php', 'w');
 
     foreach ($array as $k => $v) {
         // sanitize smilies: remove \ ' " and trim whitespaces

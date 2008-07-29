@@ -4,7 +4,7 @@ Plugin Name: Custom Smilies
 Plugin URI: http://goto8848.net/custom-smilies
 Description: Personalize your posts and comments using custom smilies. Previously named Custom Smileys. it (older than version  2.0) maintained by <a href="http://onetruebrace.com/2007/11/28/custom-smilies/">QAD</a>.
 Author: Crazy Loong
-Version: 2.0
+Version: 2.1
 Author URI: http://goto8848.net
 
 Copyright 2005 - 2008 Crazy Loong  (email : crazyloong@gmail.com)
@@ -23,7 +23,7 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
------------------ QAD do it ---------------------
+----------------- Do it by QAD ---------------------
 Version History:
 - Version 1.0: First release. 
 - Version 1.1: 
@@ -34,11 +34,17 @@ Version History:
 - Version 1.2:
 	+ Added: More/Less link
 	+ Fixed: Blog URL changed to WordPress URL
------------------ I do it -----------------------
+----------------- Do it by Crazy Loong -------------
 - Version 2.0:
 	+ Fixed: Support WordPress 2.5 or greater
-
+- Version 2.1:
+	+ Added: Check whether init.php is writeable.
+	+ Fixed: Fix the path of init.php
 */
+
+define('CLCSABSPATH', dirname(__FILE__).'/');
+
+if (file_exists(CLCSABSPATH . 'init.php') && is_writeable(CLCSABSPATH . 'init.php')) :
 
 include_once('init.php');
 
@@ -46,6 +52,13 @@ global $wp_version;
 if (version_compare($wp_version, '2.5', '<')) {
 	include('forold.php'); // For 2.3
 } else {
-	include('for25.php'); // For 2.5
+	include('for25.php'); // For 2.5 and above
 }
+
+else :
+
+$message = '<div class="error"><p>' . __('init.php is not writeable or nonexistent, so Custom Smilies is not available. If init.php is nonexistent, please create it in ' . CLCSABSPATH .  ' and make it writable.', 'custom_smilies') . '</p></div>';
+add_action('admin_notices', create_function( '', "echo '$message';" ) );
+
+endif;
 ?>
