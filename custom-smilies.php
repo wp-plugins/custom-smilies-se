@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Custom Smilies
-Plugin URI: http://goto8848.net/projects/custom-smilies/
+Plugin URI: http://goto8848.net/custom-smilies
 Description: Personalize your posts and comments using custom smilies. Previously named Custom Smileys. it (older than version  2.0) maintained by <a href="http://onetruebrace.com/2007/11/28/custom-smilies/">QAD</a>.
 Author: Crazy Loong
 Version: 2.1
@@ -44,6 +44,7 @@ Version History:
 	+ Fixed: The method of checking init.php
 	* Fixed: Optimize tips.
 	* Added: l8n
+	+ Added: Add cs_print_smilies() to the action named comment_form.
 */
 
 define('CLCSABSPATH', str_replace('\\', '/', dirname(__FILE__)) . '/');
@@ -51,6 +52,9 @@ define('CLCSABSFILE', str_replace('\\', '/', dirname(__FILE__)) . '/' . basename
 define('CLCSINITABSPATH', CLCSABSPATH . 'init.php');
 define('CLCSMGRURL', get_option('siteurl') . '/wp-admin/edit.php?page=' . plugin_basename(CLCSABSFILE));
 
+if (function_exists('load_plugin_textdomain')) {
+	load_plugin_textdomain('custom_smilies', PLUGINDIR . '/' . dirname(plugin_basename(__FILE__)) . '/lang');
+}
 if (file_exists(CLCSINITABSPATH) && is_writeable(CLCSINITABSPATH)) :
 
 include_once(CLCSINITABSPATH);
@@ -63,8 +67,8 @@ if (version_compare($wp_version, '2.5', '<')) {
 
 function add_settings_tab($action_links, $plugin_file, $plugin_data, $context) {
 	if (strip_tags($plugin_data['Title']) == 'Custom Smilies') {
-		$tempstr0 = '<a href="' . wp_nonce_url('edit.php?page=' . $plugin_file) . '" title="' . __('Manage') . '" class="edit">' . __('Manage') . '</a>';
-		$tempstr1 = '<a href="' . wp_nonce_url('options-general.php?page=' . $plugin_file) . '" title="' . __('Options') . '" class="edit">' . __('Options') . '</a>';
+		$tempstr0 = '<a href="' . wp_nonce_url('edit.php?page=' . $plugin_file) . '" title="' . __('Manage') . '" class="edit">' . __('Manage', 'custom_smilies') . '</a>';
+		$tempstr1 = '<a href="' . wp_nonce_url('options-general.php?page=' . $plugin_file) . '" title="' . __('Options') . '" class="edit">' . __('Options', 'custom_smilies') . '</a>';
 		array_unshift($action_links, $tempstr0, $tempstr1);
 	}
 	return $action_links;

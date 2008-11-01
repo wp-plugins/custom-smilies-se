@@ -36,7 +36,7 @@ function clcs_options() {
 		} else {
 			$clcs_message = 'No changes made.';
 		}
-		echo '<div id="message" class="updated fade"><p><b>' . $clcs_message . '</b> Click <a href="../wp-admin/edit.php?page=custom-smilies.php">here</a> if you want to go to Smilies Management page.</p></div>';
+		echo '<div id="message" class="updated fade"><p><b>' . $clcs_message . '</b> Click <a href="' . wp_nonce_url(CLCSMGRURL) . '">here</a> if you want to go to Smilies Management page.</p></div>';
 	}
 ?>
 <div class="wrap">
@@ -44,7 +44,7 @@ function clcs_options() {
 	<form id="smilies-options-form" method="POST" action="" name="smilies-options-form">
 		<table class="form-table">
 			<tr valign="top">
-				<th scope="row">Display these smilies above the comment form by default:</th>
+				<th scope="row"><?php _e('Display these smilies above the comment form by default:', 'custom_smilies'); ?></th>
 				<td>
 					<input type="text" value="<?php echo get_option('cs_list') ?>" name="list" style="width:95%"><br />
 					<?php _e('Put your smilies here, separated by comma. Example: <b>:D, :), :wink:, :(</b>', 'custom_smilies'); ?><br />
@@ -79,13 +79,13 @@ function clcs_management() {
 	$old_smilies = cs_load_existing_smilies();
 ?>
 <div class="wrap">
-	<h2>Manage Smilies</h2>
+	<h2><?php _e('Manage Smilies', 'custom_smilies'); ?></h2>
 	<p>
 <?php
-	echo ($su) ? '<a href="?page=custom-smilies.php&su=0">Display all smilies</a>' : '<a href="?page=custom-smilies.php&su=1">Display undefined smilies only</a>';
+	echo ($su) ? '<a href="' . wp_nonce_url(CLCSMGRURL . '&su=0') . '">' . __('Display all smilies', 'custom_smilies') . '</a>' : '<a href="' . wp_nonce_url(CLCSMGRURL . '&su=1') . '">' . __('Display undefined smilies only', 'custom_smilies') . '</a>';
 ?>
 	</p>
-	<p align="right">Please note that your smilies cannot contain any of these characters: ' " \</p>
+	<p align="right"><?php _e('Please note that your smilies cannot contain any of these characters: \' " \\', 'custom_smilies'); ?></p>
 	<form id="manage-smilies-form" method="POST" action="" name="manage-smilies-form">
 		<input type="hidden" name="page" value="custom-smilies.php" />
 		<table class="widefat" style="text-align:center">
@@ -375,5 +375,7 @@ function cs_print_smilies() {
     	echo '</span> <span id="wp-smiley-toggle"><a href="javascript:moreSmilies()">more&nbsp;&raquo;</a></span>';
     }
 }
+
+add_action('comment_form', 'cs_print_smilies');
 
 ?>
