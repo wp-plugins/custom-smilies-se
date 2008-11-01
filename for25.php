@@ -8,8 +8,8 @@ if (!get_option('use_smilies')) {
 add_action('admin_menu', 'clcs_add_pages');
 
 function clcs_add_pages() {
-	add_options_page(__('Smilies Options', 'custom_smilies'), __('Smilies', 'custom_smilies'), 8, 'custom-smilies.php', 'clcs_options');
-	add_management_page(__('Smilies Management', 'custom_smilies'), __('Smilies', 'custom_smilies'), 8, 'custom-smilies.php', 'clcs_management');
+	add_options_page(__('Smilies Options', 'custom_smilies'), __('Smilies', 'custom_smilies'), 8, CLCSABSFILE, 'clcs_options');
+	add_management_page(__('Smilies Management', 'custom_smilies'), __('Smilies', 'custom_smilies'), 8, CLCSABSFILE, 'clcs_management');
 }
 
 // add custom box
@@ -283,7 +283,7 @@ HERE;
         }
     }
 
-    fwrite($handle, ');');
+    fwrite($handle, ');' . "\n" . '?>');
 
     fclose($handle);
 
@@ -373,8 +373,7 @@ function cs_print_smilies() {
     		echo "<img src='{$url}/{$v}' alt='{$k}' onclick='grin(\"{$k}\")' class='wp-smiley-select' /> ";
     	}
     	echo '</span> <span id="wp-smiley-toggle"><a href="javascript:moreSmilies()">more&nbsp;&raquo;</a></span>';
-    }            
+    }
 }
-
 
 ?>

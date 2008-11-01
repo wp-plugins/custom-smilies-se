@@ -16,8 +16,8 @@ cs_activate();
 
 // add pages
 function cs_add_pages() {
-    add_management_page('Manage smilies', 'Smilies', 8, 'custom-smilies.php', cs_manage_smilies);
-    add_options_page('Smilies Options', 'Smilies', 8, 'custom-smilies.php', cs_options);
+    add_management_page('Manage smilies', 'Smilies', 8, CLCSABSFILE, cs_manage_smilies);
+    add_options_page('Smilies Options', 'Smilies', 8, CLCSABSFILE, cs_options);
 }
 
 // smilies options page
