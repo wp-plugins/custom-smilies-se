@@ -258,34 +258,23 @@ function cs_save_smilies($array) {
         return;
     }
 
-    $handle = fopen(CLCSABSPATH . 'init.php', 'w');
-
     foreach ($array as $k => $v) {
         // sanitize smilies: remove \ ' " and trim whitespaces
         $array[$k] = trim(str_replace(array('\'','\\', '"'), '', $v));
     }
 
-    $header = <<<HERE
-<?php
-\$wpsmiliestrans = array(\n
-HERE;
-
-    fwrite($handle, $header);
-
     $array = array_flip($array);
+    $array4db = array();
 
     foreach ($array as $k => $v) {
         // sanitize smilies file name
         $array[$k] = $v = str_replace('|', '.', $v);
-
         if (!in_array($v, array('update-smilies', 'page')) && !in_array($k, array('', 'QAD'))) {
-            fwrite($handle, "\t'{$k}' => '{$v}',\n");
+            $array4db[$k] = $v;
         }
     }
 
-    fwrite($handle, ');' . "\n" . '?>');
-
-    fclose($handle);
+	update_option('clcs_smilies', $array4db);
 
     return $array;
 }
