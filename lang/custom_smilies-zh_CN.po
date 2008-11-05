@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Custom Smilies 2.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-11-02 02:26+0800\n"
+"POT-Creation-Date: 2008-11-06 01:35+0800\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Crazy Loong <crazyloong@gmail.com>\n"
 "Language-Team: Crazy Loong <crazyloong@gmail.com>\n"
@@ -17,27 +17,13 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ./..\n"
 
-#: ../custom-smilies.php:70
+#: ../custom-smilies.php:82
 msgid "Manage"
 msgstr "管理"
 
-#: ../custom-smilies.php:71
+#: ../custom-smilies.php:83
 msgid "Options"
 msgstr "设置"
-
-#: ../custom-smilies.php:85
-#, php-format
-msgid "The file init.php is nonexistent, and Custom Smilies has no permission to create it. You must create it in %s manually"
-msgstr "文件 init.php 不存在，或者 Custom Smilies 没有权限创建这个文件。你必须手动在 %s 里创建这个文件。"
-
-#: ../custom-smilies.php:93
-#, php-format
-msgid "Custom Smilies has create init.php to make itself available. Now you can <a href=\"%s\">use Custom Smilies</a>."
-msgstr "为了正常运行，Custom Smilies 已经自动创建了 init.php 文件。现在，你可以 <a href=\"%s\">使用 Custom Smilies</a> 了"
-
-#: ../custom-smilies.php:97
-msgid "The file init.php is not writeable, so Custom Smilies is not available. Please make it writable."
-msgstr "文件 init.php 不可写，所以 Custom Smilies 不能运行。请将 init.php 设置为可写。"
 
 #: ../for25.php:11
 #: ../for25.php:43
@@ -106,4 +92,23 @@ msgstr "代码"
 #: ../for25.php:154
 msgid "Update"
 msgstr "更新"
+
+#~ msgid ""
+#~ "The file init.php is nonexistent, and Custom Smilies has no permission to "
+#~ "create it. You must create it in %s manually"
+#~ msgstr ""
+#~ "文件 init.php 不存在，或者 Custom Smilies 没有权限创建这个文件。你必须手动"
+#~ "在 %s 里创建这个文件。"
+#~ msgid ""
+#~ "Custom Smilies has create init.php to make itself available. Now you can "
+#~ "<a href=\"%s\">use Custom Smilies</a>."
+#~ msgstr ""
+#~ "为了正常运行，Custom Smilies 已经自动创建了 init.php 文件。现在，你可以 "
+#~ "<a href=\"%s\">使用 Custom Smilies</a> 了"
+#~ msgid ""
+#~ "The file init.php is not writeable, so Custom Smilies is not available. "
+#~ "Please make it writable."
+#~ msgstr ""
+#~ "文件 init.php 不可写，所以 Custom Smilies 不能运行。请将 init.php 设置为可"
+#~ "写。"
 

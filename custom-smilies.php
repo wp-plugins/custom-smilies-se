@@ -46,12 +46,23 @@ Version History:
 	+ Added: l8n and L10n.
 	+ Added: Add cs_print_smilies() to the action named comment_form.
 	+ Fixed: Replace init.php with DB.
+	+ Added: TinyMCE button.
 */
+// Pre-2.6 compatibility
+if (!defined('WP_CONTENT_URL'))
+	define('WP_CONTENT_URL', get_option('siteurl') . '/wp-content');
+if (!defined('WP_CONTENT_DIR'))
+	define('WP_CONTENT_DIR', ABSPATH . 'wp-content');
+if (!defined('WP_PLUGIN_URL'))
+	define('WP_PLUGIN_URL', WP_CONTENT_URL. '/plugins');
+if (!defined('WP_PLUGIN_DIR'))
+	define('WP_PLUGIN_DIR', WP_CONTENT_DIR . '/plugins');
 
 define('CLCSABSPATH', str_replace('\\', '/', dirname(__FILE__)) . '/');
 define('CLCSABSFILE', str_replace('\\', '/', dirname(__FILE__)) . '/' . basename(__FILE__));
 define('CLCSINITABSPATH', CLCSABSPATH . 'init.php');
 define('CLCSMGRURL', get_option('siteurl') . '/wp-admin/edit.php?page=' . plugin_basename(CLCSABSFILE));
+define('CLCSURL', get_option('siteurl') . '/wp-content/plugins/custom-smilies-se/');
 
 if (function_exists('load_plugin_textdomain')) {
 	load_plugin_textdomain('custom_smilies', PLUGINDIR . '/' . dirname(plugin_basename(__FILE__)) . '/lang');
