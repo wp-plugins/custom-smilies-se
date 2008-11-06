@@ -68,7 +68,56 @@ if (function_exists('load_plugin_textdomain')) {
 	load_plugin_textdomain('custom_smilies', PLUGINDIR . '/' . dirname(plugin_basename(__FILE__)) . '/lang');
 }
 
+global $wpsmiliestrans;
 $wpsmiliestrans = get_option('clcs_smilies');
+	if ($wpsmiliestrans == false) {
+		$wpsmiliestrans = array(
+		':mrgreen:' => 'icon_mrgreen.gif',
+		':neutral:' => 'icon_neutral.gif',
+		':twisted:' => 'icon_twisted.gif',
+		  ':arrow:' => 'icon_arrow.gif',
+		  ':shock:' => 'icon_eek.gif',
+		  ':smile:' => 'icon_smile.gif',
+		    ':???:' => 'icon_confused.gif',
+		   ':cool:' => 'icon_cool.gif',
+		   ':evil:' => 'icon_evil.gif',
+		   ':grin:' => 'icon_biggrin.gif',
+		   ':idea:' => 'icon_idea.gif',
+		   ':oops:' => 'icon_redface.gif',
+		   ':razz:' => 'icon_razz.gif',
+		   ':roll:' => 'icon_rolleyes.gif',
+		   ':wink:' => 'icon_wink.gif',
+		    ':cry:' => 'icon_cry.gif',
+		    ':eek:' => 'icon_surprised.gif',
+		    ':lol:' => 'icon_lol.gif',
+		    ':mad:' => 'icon_mad.gif',
+		    ':sad:' => 'icon_sad.gif',
+		      '8-)' => 'icon_cool.gif',
+		      '8-O' => 'icon_eek.gif',
+		      ':-(' => 'icon_sad.gif',
+		      ':-)' => 'icon_smile.gif',
+		      ':-?' => 'icon_confused.gif',
+		      ':-D' => 'icon_biggrin.gif',
+		      ':-P' => 'icon_razz.gif',
+		      ':-o' => 'icon_surprised.gif',
+		      ':-x' => 'icon_mad.gif',
+		      ':-|' => 'icon_neutral.gif',
+		      ';-)' => 'icon_wink.gif',
+		       '8)' => 'icon_cool.gif',
+		       '8O' => 'icon_eek.gif',
+		       ':(' => 'icon_sad.gif',
+		       ':)' => 'icon_smile.gif',
+		       ':?' => 'icon_confused.gif',
+		       ':D' => 'icon_biggrin.gif',
+		       ':P' => 'icon_razz.gif',
+		       ':o' => 'icon_surprised.gif',
+		       ':x' => 'icon_mad.gif',
+		       ':|' => 'icon_neutral.gif',
+		       ';)' => 'icon_wink.gif',
+		      ':!:' => 'icon_exclaim.gif',
+		      ':?:' => 'icon_question.gif',
+		);
+	}
 
 global $wp_version;
 if (version_compare($wp_version, '2.5', '<')) {
@@ -93,16 +142,22 @@ if (version_compare($wp_version, '2.5', '<')) {
 
 register_activation_hook(__FILE__, 'clcs_activate');
 function clcs_activate() {
-	if (file_exists(CLCSINITABSPATH)) { // Upgrade from older.
-		include_once(CLCSINITABSPATH);
-		if (isset($wpsmiliestrans) && is_array($wpsmiliestrans) && get_option('clcs_smilies') === false) {
-			add_option('clcs_smilies', $wpsmiliestrans);
+	if (get_option('clcs_smilies') == false) { // Upgrade from older.
+		if (file_exists(CLCSINITABSPATH)) {
+			include_once(CLCSINITABSPATH);
+			if (isset($wpsmiliestrans) && is_array($wpsmiliestrans)) {
+				add_option('clcs_smilies', $wpsmiliestrans);
+			} else {
+				global $wpsmiliestrans;
+				$array4db = $wpsmiliestrans;
+				update_option('clcs_smilies', $array4db);
+			}
+			if (is_writeable(CLCSINITABSPATH)) {
+				unlink(CLCSINITABSPATH);
+			}
 		} else {
 			$array4db = array();
 			update_option('clcs_smilies', $array4db);
-		}
-		if (is_writeable(CLCSINITABSPATH)) {
-			unlink(CLCSINITABSPATH);
 		}
 	}
 }

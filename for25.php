@@ -21,7 +21,7 @@ function clcs_add_custom_box() {
 }
 
 // install & upgrade
-cs_activate();
+//cs_activate();
 
 // smilies options page
 function clcs_options() {
