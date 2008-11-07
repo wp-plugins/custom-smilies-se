@@ -22,7 +22,7 @@ This plugin was first released in 2005 and it is now updated to be compatible wi
 1. Put your smilies in smilies folder (wp-includes/images/smilies/)
 1. Change the emoticons by navigating to Manage > Smilies and complete the form
 
-Advanced use: [Click here to read my blog post](http://onetruebrace.com/custom-smilies "Custom Smilies")
+Advanced use: [Click here to read my blog post](http://goto8848.net/projects/custom-smilies/ "Custom Smilies")
 
 == Screenshots ==
 
