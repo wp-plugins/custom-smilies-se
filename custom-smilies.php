@@ -48,7 +48,10 @@ Version History:
 	+ Fixed: Replace init.php with DB.
 	+ Added: TinyMCE button.
 - Version 2.3:
-	+ Fixed: Serious logical bug.
+	+ Fixed: A Serious logical bug.
+- Version 2.4:
+	+ Fixed: User can decide whether use the action named comment_form.
+	+ Fixed: l8n and L10n.
 */
 // Pre-2.6 compatibility
 if (!defined('WP_CONTENT_URL'))
@@ -161,6 +164,11 @@ function clcs_activate() {
 			$array4db = array();
 			update_option('clcs_smilies', $array4db);
 		}
+	}
+	$clcs_options = get_option('clcs_options');
+	if ($clcs_options == false) {
+		$clcs_options = array('use_action_comment_form', 0);
+		update_option('clcs_options', $clcs_options);
 	}
 }
 ?>

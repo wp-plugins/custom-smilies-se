@@ -31,13 +31,31 @@ function clcs_options() {
 			update_option('cs_list', $_POST['list']);
 			$updated = true;
 		}
-		if ($updated) {
-			$clcs_message = 'Preferences updated.';
+		if (array_key_exists('use-action-comment-form', $_POST)) {
+			$clcs_options = get_option('clcs_options');
+			if ($clcs_options['use_action_comment_form'] == 0) {
+				$updated = true;
+			}
+			$clcs_options['use_action_comment_form'] = 1;
+			update_option('clcs_options', $clcs_options);
 		} else {
-			$clcs_message = 'No changes made.';
+			$clcs_options = get_option('clcs_options');
+			if ($clcs_options['use_action_comment_form'] == 1) {
+				$updated = true;
+			}
+			$clcs_options['use_action_comment_form'] = 0;
+			update_option('clcs_options', $clcs_options);
 		}
-		echo '<div id="message" class="updated fade"><p><b>' . $clcs_message . '</b> Click <a href="' . wp_nonce_url(CLCSMGRURL) . '">here</a> if you want to go to Smilies Management page.</p></div>';
+		if ($updated) {
+			$clcs_message = __('Preferences updated.', 'custom_smilies');
+		} else {
+			$clcs_message = __('No changes made.', 'custom_smilies');
+		}
+		echo '<div id="message" class="updated fade"><p>';
+		printf(__('<b>%s</b> Click <a href="%s">here</a> if you want to go to Smilies Management page.', 'custom_smilies'), $clcs_message, wp_nonce_url(CLCSMGRURL));
+		echo '</p></div>';
 	}
+	$clcs_options = get_option('clcs_options');
 ?>
 <div class="wrap">
 	<h2><?php _e('Smilies Options', 'custom_smilies'); ?></h2>
@@ -49,6 +67,17 @@ function clcs_options() {
 					<input type="text" value="<?php echo get_option('cs_list') ?>" name="list" style="width:95%"><br />
 					<?php _e('Put your smilies here, separated by comma. Example: <b>:D, :), :wink:, :(</b>', 'custom_smilies'); ?><br />
 					<?php _e('Leave this field blank if you want to display all smilies.', 'custom_smilies'); ?>
+				</td>
+			</tr>
+			<tr valign="top">
+				<th scope="row"><?php _e('Other options:', 'custom_smilies'); ?></th>
+				<td>
+					<fieldset>
+						<label for="use-action-comment-form">
+							<input id="use-action-comment-form" type="checkbox" name="use-action-comment-form" value="1"<?php if ($clcs_options['use_action_comment_form'] == 1) echo ' checked="checked"'; ?> />
+							<?php _e('Use the action named comment_form in comments.php if your theme support it. So you don&#39;t need to add cs_print_smilies() in comments.php manually.', 'custom_smilies'); ?>
+						</label>
+					</fieldset>
 				</td>
 			</tr>
 		</table>
@@ -365,7 +394,10 @@ function cs_print_smilies() {
     }
 }
 
+$clcs_options_only = get_option('clcs_options');
+if ($clcs_options_only['use_action_comment_form'] == 1) :
 add_action('comment_form', 'cs_print_smilies');
+endif;
 
 function add_clcs_tinymce_plugin($plugin_array) {
 	$plugin_array['clcs'] = CLCSURL . 'tinymce/plugins/custom-smilies-se/editor_plugin.js';
