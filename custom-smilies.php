@@ -94,7 +94,7 @@ function smilies_list_hide() {
 	jQuery("#smilieslist").hide();
 }
 function smilies_insert(code) {
-	edInsertContent(document.getElementById("replycontent"), code);
+	edInsertContent(document.getElementById("replycontent"), ' ' + code + ' ');
 	smilies_list_hide();
 }
 </script>
