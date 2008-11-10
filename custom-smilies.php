@@ -63,6 +63,7 @@ if (!defined('WP_PLUGIN_URL'))
 if (!defined('WP_PLUGIN_DIR'))
 	define('WP_PLUGIN_DIR', WP_CONTENT_DIR . '/plugins');
 
+if (version_compare($wp_version, '2.7', '>=')) :
 if (is_admin() && (strstr($_SERVER['PHP_SELF'], 'wp-admin/index.php') || strstr($_SERVER['PHP_SELF'], 'wp-admin/edit-comments.php'))) :
 
 add_action('wp_print_scripts', 'clcs_add_js');
@@ -82,8 +83,6 @@ function clcs_add_js4reply() {
 jQuery(document).ready(function (){
 	jQuery('#ed_reply_toolbar').append('<input id="ed_reply_test" class="ed_button" type="button" value="smilies" onclick="smilies_list_show();" />');
 	jQuery('body').append('<?php echo $clcs_smilies_list; ?>');
-	//alert("dasdas");
-	//tb_init('a.thickbox, area.thickbox, input.thickbox');
 });
 function smilies_list_show() {
 	jQuery("#smilieslist").dialog();
@@ -101,6 +100,7 @@ function smilies_insert(code) {
 <?php
 }
 
+endif;
 endif;
 
 define('CLCSABSPATH', str_replace('\\', '/', dirname(__FILE__)) . '/');
