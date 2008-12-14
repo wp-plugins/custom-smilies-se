@@ -49,6 +49,8 @@ Version History:
 	+ Added: TinyMCE button.
 - Version 2.3:
 	+ Fixed: Serious logical bug.
+- Version 2.5:
+	+ Fixed: A JS error in IE.
 */
 // Pre-2.6 compatibility
 if (!defined('WP_CONTENT_URL'))
