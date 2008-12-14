@@ -4,7 +4,7 @@ Plugin Name: Custom Smilies
 Plugin URI: http://goto8848.net/projects/custom-smilies/
 Description: Personalize your posts and comments using custom smilies. Previously named Custom Smileys. it (older than version  2.0) maintained by <a href="http://onetruebrace.com/2007/11/28/custom-smilies/">QAD</a>.
 Author: Crazy Loong
-Version: 2.3
+Version: 2.5
 Author URI: http://goto8848.net
 
 Copyright 2005 - 2008 Crazy Loong  (email : crazyloong@gmail.com)
@@ -49,6 +49,8 @@ Version History:
 	+ Added: TinyMCE button.
 - Version 2.3:
 	+ Fixed: Serious logical bug.
+- Version 2.5:
+	+ Fixed: A JS error in IE.
 */
 // Pre-2.6 compatibility
 if (!defined('WP_CONTENT_URL'))
