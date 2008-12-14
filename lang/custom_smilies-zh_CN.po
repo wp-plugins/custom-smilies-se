@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Custom Smilies 2.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-11-08 22:28+0800\n"
+"POT-Creation-Date: 2008-11-06 01:35+0800\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Crazy Loong <crazyloong@gmail.com>\n"
 "Language-Team: Crazy Loong <crazyloong@gmail.com>\n"
@@ -17,16 +17,16 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ./..\n"
 
-#: ../custom-smilies.php:136
+#: ../custom-smilies.php:82
 msgid "Manage"
 msgstr "管理"
 
-#: ../custom-smilies.php:137
+#: ../custom-smilies.php:83
 msgid "Options"
 msgstr "设置"
 
 #: ../for25.php:11
-#: ../for25.php:61
+#: ../for25.php:43
 msgid "Smilies Options"
 msgstr "表情设置"
 
@@ -41,76 +41,55 @@ msgstr "表情"
 msgid "Smilies Management"
 msgstr "表情管理"
 
-#: ../for25.php:50
-msgid "Preferences updated."
-msgstr "设置已更新。"
-
-#: ../for25.php:52
-msgid "No changes made."
-msgstr "设置没有更改。"
-
-#: ../for25.php:55
-#, php-format
-msgid "<b>%s</b> Click <a href=\"%s\">here</a> if you want to go to Smilies Management page."
-msgstr "<b>%s</b>点击 <a href=\"%s\">这里</a> 进行表情管理。"
-
-#: ../for25.php:65
+#: ../for25.php:47
 msgid "Display these smilies above the comment form by default:"
-msgstr "默认显示的表情："
+msgstr "显示默认表情："
 
-#: ../for25.php:68
+#: ../for25.php:50
 msgid "Put your smilies here, separated by comma. Example: <b>:D, :), :wink:, :(</b>"
 msgstr "在这里输入表情，用逗号隔开。例如：<b>:D, :), :wink:, :(</b>"
 
-#: ../for25.php:69
+#: ../for25.php:51
 msgid "Leave this field blank if you want to display all smilies."
 msgstr "如果你想显示全部表情，就将这里留空。"
 
-#: ../for25.php:73
-msgid "Other options:"
-msgstr "其它设置："
-
-#: ../for25.php:78
-msgid "Use the action named comment_form in comments.php if your theme support it. So you don&#39;t need to add cs_print_smilies() in comments.php manually."
-msgstr "使用 comments.php 文件里的 comment_form action，如果主题支持的话。这样，你就不用手动加入 cs_print_smilies() 调用了。"
-
-#: ../for25.php:85
+#: ../for25.php:56
 msgid "Update Options"
 msgstr "更新设置"
 
-#: ../for25.php:102
+#: ../for25.php:73
 msgid "Your smilies have been updated."
 msgstr "表情已更新。"
 
-#: ../for25.php:111
+#: ../for25.php:82
 msgid "Manage Smilies"
 msgstr "表情管理"
 
-#: ../for25.php:114
+#: ../for25.php:85
 msgid "Display all smilies"
 msgstr "显示全部表情"
 
-#: ../for25.php:114
+#: ../for25.php:85
 msgid "Display undefined smilies only"
 msgstr "显示未定义的表情"
 
-#: ../for25.php:117
+#: ../for25.php:88
 msgid "Please note that your smilies cannot contain any of these characters: ' \" \\"
 msgstr "注意：你的表情代码中不能包含下列字符：' \" \\"
 
-#: ../for25.php:124
-#: ../for25.php:130
-#: ../for25.php:136
+#: ../for25.php:95
+#: ../for25.php:101
+#: ../for25.php:107
 msgid "Smilie"
 msgstr "表情"
 
-#: ../for25.php:127
-#: ../for25.php:133
-#: ../for25.php:139
+#: ../for25.php:98
+#: ../for25.php:104
+#: ../for25.php:110
 msgid "What to type"
 msgstr "代码"
 
-#: ../for25.php:183
+#: ../for25.php:154
 msgid "Update"
 msgstr "更新"
 

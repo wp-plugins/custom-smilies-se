@@ -4,7 +4,7 @@ Plugin Name: Custom Smilies
 Plugin URI: http://goto8848.net/projects/custom-smilies/
 Description: Personalize your posts and comments using custom smilies. Previously named Custom Smileys. it (older than version  2.0) maintained by <a href="http://onetruebrace.com/2007/11/28/custom-smilies/">QAD</a>.
 Author: Crazy Loong
-Version: 2.3
+Version: 2.5
 Author URI: http://goto8848.net
 
 Copyright 2005 - 2008 Crazy Loong  (email : crazyloong@gmail.com)
@@ -48,10 +48,7 @@ Version History:
 	+ Fixed: Replace init.php with DB.
 	+ Added: TinyMCE button.
 - Version 2.3:
-	+ Fixed: A Serious logical bug.
-- Version 2.4:
-	+ Fixed: User can decide whether use the action named comment_form.
-	+ Fixed: l8n and L10n.
+	+ Fixed: Serious logical bug.
 */
 // Pre-2.6 compatibility
 if (!defined('WP_CONTENT_URL'))
@@ -62,46 +59,6 @@ if (!defined('WP_PLUGIN_URL'))
 	define('WP_PLUGIN_URL', WP_CONTENT_URL. '/plugins');
 if (!defined('WP_PLUGIN_DIR'))
 	define('WP_PLUGIN_DIR', WP_CONTENT_DIR . '/plugins');
-
-if (version_compare($wp_version, '2.7', '>=')) :
-if (is_admin() && (strstr($_SERVER['PHP_SELF'], 'wp-admin/index.php') || strstr($_SERVER['PHP_SELF'], 'wp-admin/edit-comments.php'))) :
-
-add_action('wp_print_scripts', 'clcs_add_js');
-function clcs_add_js() {
-	wp_enqueue_script('jquery-ui-dialog');
-}
-add_action('admin_head', 'clcs_add_css');
-function clcs_add_css() {
-	echo '<link rel="stylesheet" href="http://dev.jquery.com/view/tags/ui/latest/themes/flora/flora.all.css" type="text/css" media="screen" title="Flora (Default)">';
-}
-add_action('in_admin_footer', 'clcs_add_js4reply');
-function clcs_add_js4reply() {
-	include ('genlist_reply.php');
-	$smilieslisturl = get_option('siteurl') . '/wp-content/plugins/custom-smilies-se/genlist_reply.js.php';
-?>
-<script type="text/javascript">
-jQuery(document).ready(function (){
-	jQuery('#ed_reply_toolbar').append('<input id="ed_reply_test" class="ed_button" type="button" value="smilies" onclick="smilies_list_show();" />');
-	jQuery('body').append('<?php echo $clcs_smilies_list; ?>');
-});
-function smilies_list_show() {
-	jQuery("#smilieslist").dialog();
-	jQuery("#smilieslist").show();
-}
-function smilies_list_hide() {
-	jQuery("#smilieslist").dialog("destroy");
-	jQuery("#smilieslist").hide();
-}
-function smilies_insert(code) {
-	edInsertContent(document.getElementById("replycontent"), ' ' + code + ' ');
-	smilies_list_hide();
-}
-</script>
-<?php
-}
-
-endif;
-endif;
 
 define('CLCSABSPATH', str_replace('\\', '/', dirname(__FILE__)) . '/');
 define('CLCSABSFILE', str_replace('\\', '/', dirname(__FILE__)) . '/' . basename(__FILE__));
@@ -204,11 +161,6 @@ function clcs_activate() {
 			$array4db = array();
 			update_option('clcs_smilies', $array4db);
 		}
-	}
-	$clcs_options = get_option('clcs_options');
-	if ($clcs_options == false) {
-		$clcs_options = array('use_action_comment_form', 0);
-		update_option('clcs_options', $clcs_options);
 	}
 }
 ?>
