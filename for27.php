@@ -9,7 +9,6 @@ add_action('admin_menu', 'clcs_add_pages');
 
 function clcs_add_pages() {
 	add_options_page(__('Smilies Options', 'custom_smilies'), __('Smilies', 'custom_smilies'), 8, CLCSABSFILE, 'clcs_options');
-	add_management_page(__('Smilies Management', 'custom_smilies'), __('Smilies', 'custom_smilies'), 8, CLCSABSFILE, 'clcs_management');
 }
 
 // add custom box
@@ -25,6 +24,8 @@ function clcs_add_custom_box() {
 
 // smilies options page
 function clcs_options() {
+	global $wpsmiliestrans;
+	
 	if ($_POST['update-options']) {
 		$updated = false;
 		if (get_option('cs_list') != $_POST['list']) {
@@ -36,33 +37,8 @@ function clcs_options() {
 		} else {
 			$clcs_message = 'No changes made.';
 		}
-		echo '<div id="message" class="updated fade"><p><b>' . $clcs_message . '</b> Click <a href="' . wp_nonce_url(CLCSMGRURL) . '">here</a> if you want to go to Smilies Management page.</p></div>';
+		echo '<div id="message" class="updated fade"><p><b>' . $clcs_message . '</b></p></div>';
 	}
-?>
-<div class="wrap">
-	<h2><?php _e('Smilies Options', 'custom_smilies'); ?></h2>
-	<form id="smilies-options-form" method="POST" action="" name="smilies-options-form">
-		<table class="form-table">
-			<tr valign="top">
-				<th scope="row"><?php _e('Display these smilies above the comment form by default:', 'custom_smilies'); ?></th>
-				<td>
-					<input type="text" value="<?php echo get_option('cs_list') ?>" name="list" style="width:95%"><br />
-					<?php _e('Put your smilies here, separated by comma. Example: <b>:D, :), :wink:, :(</b>', 'custom_smilies'); ?><br />
-					<?php _e('Leave this field blank if you want to display all smilies.', 'custom_smilies'); ?>
-				</td>
-			</tr>
-		</table>
-		<p class="submit">
-			<input type="submit" value="<?php _e('Update Options', 'custom_smilies'); ?>" name="update-options"/>
-		</p>
-	</form>
-</div>
-<?php
-}
-
-// smilies management page
-function clcs_management() {
-	global $wpsmiliestrans;
 	
 	// show all or show undefined?
 	$su = ($_GET['su'] === '1');
@@ -82,7 +58,7 @@ function clcs_management() {
 	<h2><?php _e('Manage Smilies', 'custom_smilies'); ?></h2>
 	<p>
 <?php
-	echo ($su) ? '<a href="' . wp_nonce_url(CLCSMGRURL . '&su=0') . '">' . __('Display all smilies', 'custom_smilies') . '</a>' : '<a href="' . wp_nonce_url(CLCSMGRURL . '&su=1') . '">' . __('Display undefined smilies only', 'custom_smilies') . '</a>';
+	echo ($su) ? '<a href="' . wp_nonce_url(CLCSOPTURL . '&su=0') . '">' . __('Display all smilies', 'custom_smilies') . '</a>' : '<a href="' . wp_nonce_url(CLCSOPTURL . '&su=1') . '">' . __('Display undefined smilies only', 'custom_smilies') . '</a>';
 ?>
 	</p>
 	<p align="right"><?php _e('Please note that your smilies cannot contain any of these characters: \' " \\', 'custom_smilies'); ?></p>
@@ -152,6 +128,23 @@ function clcs_management() {
 		</table>
 		<p class="submit">
 			<input type="submit" value="<?php _e('Update', 'custom_smilies'); ?>" name="update-smilies"/>
+		</p>
+	</form>
+	
+	<h2><?php _e('Smilies Options', 'custom_smilies'); ?></h2>
+	<form id="smilies-options-form" method="POST" action="" name="smilies-options-form">
+		<table class="form-table">
+			<tr valign="top">
+				<th scope="row"><?php _e('Display these smilies above the comment form by default:', 'custom_smilies'); ?></th>
+				<td>
+					<input type="text" value="<?php echo get_option('cs_list') ?>" name="list" style="width:95%"><br />
+					<?php _e('Put your smilies here, separated by comma. Example: <b>:D, :), :wink:, :(</b>', 'custom_smilies'); ?><br />
+					<?php _e('Leave this field blank if you want to display all smilies.', 'custom_smilies'); ?>
+				</td>
+			</tr>
+		</table>
+		<p class="submit">
+			<input type="submit" value="<?php _e('Update Options', 'custom_smilies'); ?>" name="update-options"/>
 		</p>
 	</form>
 </div>

@@ -51,6 +51,12 @@ Version History:
 	+ Fixed: Serious logical bug.
 - Version 2.5:
 	+ Fixed: A JS error in IE.
+- Version 2.6:
+	+ Fixed: Modify management link.(only for 2.7)
+	+ Fixed: Remove cs_print_smilies() from the action named comment_form.
+	* Added: (only for 2.7)
+	+ Added: Italian.
+	* Fixed: The size of the smilies list.
 */
 // Pre-2.6 compatibility
 if (!defined('WP_CONTENT_URL'))
@@ -66,6 +72,7 @@ define('CLCSABSPATH', str_replace('\\', '/', dirname(__FILE__)) . '/');
 define('CLCSABSFILE', str_replace('\\', '/', dirname(__FILE__)) . '/' . basename(__FILE__));
 define('CLCSINITABSPATH', CLCSABSPATH . 'init.php');
 define('CLCSMGRURL', get_option('siteurl') . '/wp-admin/edit.php?page=' . plugin_basename(CLCSABSFILE));
+define('CLCSOPTURL', get_option('siteurl') . '/wp-admin/options-general.php?page=' . plugin_basename(CLCSABSFILE));
 define('CLCSURL', get_option('siteurl') . '/wp-content/plugins/custom-smilies-se/');
 
 if (function_exists('load_plugin_textdomain')) {
@@ -126,8 +133,8 @@ if ($wpsmiliestrans == false) {
 global $wp_version;
 if (version_compare($wp_version, '2.5', '<')) {
 	include('forold.php'); // For 2.3
-} else {
-	include('for25.php'); // For 2.5 and above
+} elseif ((version_compare($wp_version, '2.7', '<'))) {
+	include('for25.php'); // For 2.5 and 2.6
 
 	add_filter('plugin_action_links', 'add_settings_tab', 10, 4);
 	function add_settings_tab($action_links, $plugin_file, $plugin_data, $context) {
@@ -138,6 +145,19 @@ if (version_compare($wp_version, '2.5', '<')) {
 		}
 		return $action_links;
 	}
+} else {
+	include('for27.php'); // For 2.7 and above
+
+	add_filter('plugin_action_links', 'add_settings_tab', 10, 4);
+	function add_settings_tab($action_links, $plugin_file, $plugin_data, $context) {
+		if (strip_tags($plugin_data['Title']) == 'Custom Smilies') {
+			//$tempstr0 = '<a href="' . wp_nonce_url('edit.php?page=' . $plugin_file) . '" title="' . __('Manage') . '" class="edit">' . __('Manage', 'custom_smilies') . '</a>';
+			$tempstr1 = '<a href="' . wp_nonce_url('options-general.php?page=' . $plugin_file) . '" title="' . __('Options') . '" class="edit">' . __('Options', 'custom_smilies') . '</a>';
+			array_unshift($action_links, $tempstr1);
+		}
+		return $action_links;
+	}
+
 }
 
 //$message = '<div class="error"><p>';
