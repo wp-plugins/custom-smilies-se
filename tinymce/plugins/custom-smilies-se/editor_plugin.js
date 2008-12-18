@@ -1,6 +1,6 @@
 (function() {
 	// Load plugin specific language pack
-	tinymce.PluginManager.requireLangPack('clcs');
+	//tinymce.PluginManager.requireLangPack('clcs');
 
 	tinymce.create('tinymce.plugins.clcsPlugin', {
 		/**

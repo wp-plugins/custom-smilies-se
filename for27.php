@@ -57,9 +57,13 @@ function clcs_add_custom_box() {
 }
 */
 
-function add_clcs_tinymce_plugin($plugin_array) {
-	$plugin_array['clcs'] = CLCSURL . 'tinymce/plugins/custom-smilies-se/editor_plugin.js';
-	return $plugin_array;
+function add_clcs_tinymce_plugin($plugins_array) {
+	$plugins_array['clcs'] = CLCSURL . 'tinymce/plugins/custom-smilies-se/editor_plugin.js';
+	return $plugins_array;
+}
+function add_clcs_tinymce_language($languages_array) {
+	$languages_array['clcs'] = CLCSABSPATH . '/lang.php';
+	return $languages_array;
 }
 function register_clcs_button($buttons) {
 	$buttons[] = 'separator';
@@ -71,6 +75,7 @@ function clcs_addbuttons() {
 		return;
 	if ( get_user_option('rich_editing') == 'true') {
 		add_filter('mce_external_plugins', 'add_clcs_tinymce_plugin');
+		//add_filter('mce_external_languages', 'add_clcs_tinymce_language');
 		add_filter('mce_buttons', 'register_clcs_button');
 	}
 }
