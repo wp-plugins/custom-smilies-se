@@ -16,8 +16,8 @@
 			ed.addCommand('mceclcs', function() {
 				ed.windowManager.open({
 					file : url + '/smilies.htm',
-					width : 250 + parseInt(ed.getLang('emotions.delta_width', 0)),
-					height : 160 + parseInt(ed.getLang('emotions.delta_height', 0)),
+					width : 250 + parseInt(ed.getLang('clcs.delta_width', 0)),
+					height : 160 + parseInt(ed.getLang('clcs.delta_height', 0)),
 					inline : 1
 				}, {
 					plugin_url : url
@@ -67,7 +67,7 @@
 				author : 'Crazy Loong',
 				authorurl : 'http://goto8848.net',
 				infourl : 'http://goto8848.net/projects/custom-smilies/',
-				version : "2.2"
+				version : "2.6"
 			};
 		}
 	});

@@ -55,8 +55,9 @@ Version History:
 	+ Fixed: Modify management link.(only for 2.7)
 	+ Fixed: Remove cs_print_smilies() from the action named comment_form.
 	* Added: (only for 2.7)
-	+ Added: Italian.
+	+ Added: Italian.(Translated by Gianni Diurno site: gidibao.net)
 	* Fixed: The size of the smilies list.
+	* Added: Custom the size of The popup window which contains the smilies list.
 */
 // Pre-2.6 compatibility
 if (!defined('WP_CONTENT_URL'))
@@ -133,31 +134,33 @@ if ($wpsmiliestrans == false) {
 global $wp_version;
 if (version_compare($wp_version, '2.5', '<')) {
 	include('forold.php'); // For 2.3
-} elseif ((version_compare($wp_version, '2.7', '<'))) {
-	include('for25.php'); // For 2.5 and 2.6
-
-	add_filter('plugin_action_links', 'add_settings_tab', 10, 4);
-	function add_settings_tab($action_links, $plugin_file, $plugin_data, $context) {
-		if (strip_tags($plugin_data['Title']) == 'Custom Smilies') {
-			$tempstr0 = '<a href="' . wp_nonce_url('edit.php?page=' . $plugin_file) . '" title="' . __('Manage') . '" class="edit">' . __('Manage', 'custom_smilies') . '</a>';
-			$tempstr1 = '<a href="' . wp_nonce_url('options-general.php?page=' . $plugin_file) . '" title="' . __('Options') . '" class="edit">' . __('Options', 'custom_smilies') . '</a>';
-			array_unshift($action_links, $tempstr0, $tempstr1);
-		}
-		return $action_links;
-	}
 } else {
-	include('for27.php'); // For 2.7 and above
+	include('common.inc.php');
+	if ((version_compare($wp_version, '2.7', '<'))) {
+		include('for25.php'); // For 2.5 and 2.6
 
-	add_filter('plugin_action_links', 'add_settings_tab', 10, 4);
-	function add_settings_tab($action_links, $plugin_file, $plugin_data, $context) {
-		if (strip_tags($plugin_data['Title']) == 'Custom Smilies') {
-			//$tempstr0 = '<a href="' . wp_nonce_url('edit.php?page=' . $plugin_file) . '" title="' . __('Manage') . '" class="edit">' . __('Manage', 'custom_smilies') . '</a>';
-			$tempstr1 = '<a href="' . wp_nonce_url('options-general.php?page=' . $plugin_file) . '" title="' . __('Options') . '" class="edit">' . __('Options', 'custom_smilies') . '</a>';
-			array_unshift($action_links, $tempstr1);
+		add_filter('plugin_action_links', 'add_settings_tab', 10, 4);
+		function add_settings_tab($action_links, $plugin_file, $plugin_data, $context) {
+			if (strip_tags($plugin_data['Title']) == 'Custom Smilies') {
+				$tempstr0 = '<a href="' . wp_nonce_url('edit.php?page=' . $plugin_file) . '" title="' . __('Manage') . '" class="edit">' . __('Manage', 'custom_smilies') . '</a>';
+				$tempstr1 = '<a href="' . wp_nonce_url('options-general.php?page=' . $plugin_file) . '" title="' . __('Options') . '" class="edit">' . __('Options', 'custom_smilies') . '</a>';
+				array_unshift($action_links, $tempstr0, $tempstr1);
+			}
+			return $action_links;
 		}
-		return $action_links;
-	}
+	} else {
+		include('for27.php'); // For 2.7 and above
 
+		add_filter('plugin_action_links', 'add_settings_tab', 10, 4);
+		function add_settings_tab($action_links, $plugin_file, $plugin_data, $context) {
+			if (strip_tags($plugin_data['Title']) == 'Custom Smilies') {
+				//$tempstr0 = '<a href="' . wp_nonce_url('edit.php?page=' . $plugin_file) . '" title="' . __('Manage') . '" class="edit">' . __('Manage', 'custom_smilies') . '</a>';
+				$tempstr1 = '<a href="' . wp_nonce_url('options-general.php?page=' . $plugin_file) . '" title="' . __('Options') . '" class="edit">' . __('Options', 'custom_smilies') . '</a>';
+				array_unshift($action_links, $tempstr1);
+			}
+			return $action_links;
+		}
+	}
 }
 
 //$message = '<div class="error"><p>';
@@ -183,6 +186,19 @@ function clcs_activate() {
 			$array4db = array();
 			update_option('clcs_smilies', $array4db);
 		}
+	}
+	$clcs_options = get_option('clcs_options');
+	if ($clcs_options == false) {
+		$clcs_options = array('use_action_comment_form' => 0, 'commment_textarea' => 'comment');
+		update_option('clcs_options', $clcs_options);
+	} else {
+		if (!array_key_exists('comment_textarea', $clcs_options)) {
+			$clcs_options['comment_textarea'] = 'comment';
+		}
+		if (!array_key_exists('use_action_comment_form', $clcs_options)) {
+			$clcs_options['use_action_comment_form'] = 'comment';
+		}
+		update_option('clcs_options', $clcs_options);
 	}
 }
 ?>
