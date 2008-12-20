@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Custom Smilies 2.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-11-06 01:35+0800\n"
+"POT-Creation-Date: 2008-12-20 18:03+0800\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Crazy Loong <crazyloong@gmail.com>\n"
 "Language-Team: Crazy Loong <crazyloong@gmail.com>\n"
@@ -17,82 +17,120 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ./..\n"
 
-#: ../custom-smilies.php:82
-msgid "Manage"
-msgstr "管理"
+#: ../common.inc.php:114
+msgid "Preferences updated."
+msgstr "设置已更新。"
 
-#: ../custom-smilies.php:83
-msgid "Options"
-msgstr "设置"
+#: ../common.inc.php:116
+msgid "No changes made."
+msgstr "没有改变设置。"
 
-#: ../for25.php:11
-#: ../for25.php:43
-msgid "Smilies Options"
-msgstr "表情设置"
-
-#: ../for25.php:11
-#: ../for25.php:12
-#: ../for25.php:19
-#: ../for25.php:20
-msgid "Smilies"
-msgstr "表情"
-
-#: ../for25.php:12
-msgid "Smilies Management"
-msgstr "表情管理"
-
-#: ../for25.php:47
-msgid "Display these smilies above the comment form by default:"
-msgstr "显示默认表情："
-
-#: ../for25.php:50
-msgid "Put your smilies here, separated by comma. Example: <b>:D, :), :wink:, :(</b>"
-msgstr "在这里输入表情，用逗号隔开。例如：<b>:D, :), :wink:, :(</b>"
-
-#: ../for25.php:51
-msgid "Leave this field blank if you want to display all smilies."
-msgstr "如果你想显示全部表情，就将这里留空。"
-
-#: ../for25.php:56
-msgid "Update Options"
-msgstr "更新设置"
-
-#: ../for25.php:73
+#: ../common.inc.php:132
 msgid "Your smilies have been updated."
 msgstr "表情已更新。"
 
-#: ../for25.php:82
+#: ../common.inc.php:141
 msgid "Manage Smilies"
 msgstr "表情管理"
 
-#: ../for25.php:85
+#: ../common.inc.php:144
 msgid "Display all smilies"
 msgstr "显示全部表情"
 
-#: ../for25.php:85
+#: ../common.inc.php:144
 msgid "Display undefined smilies only"
 msgstr "显示未定义的表情"
 
-#: ../for25.php:88
+#: ../common.inc.php:147
 msgid "Please note that your smilies cannot contain any of these characters: ' \" \\"
 msgstr "注意：你的表情代码中不能包含下列字符：' \" \\"
 
-#: ../for25.php:95
-#: ../for25.php:101
-#: ../for25.php:107
+#: ../common.inc.php:154
+#: ../common.inc.php:160
+#: ../common.inc.php:166
 msgid "Smilie"
 msgstr "表情"
 
-#: ../for25.php:98
-#: ../for25.php:104
-#: ../for25.php:110
+#: ../common.inc.php:157
+#: ../common.inc.php:163
+#: ../common.inc.php:169
 msgid "What to type"
 msgstr "代码"
 
-#: ../for25.php:154
+#: ../common.inc.php:213
 msgid "Update"
 msgstr "更新"
 
+#: ../common.inc.php:217
+#: ../for25.php:6
+#: ../for27.php:47
+msgid "Smilies Options"
+msgstr "表情设置"
+
+#: ../common.inc.php:221
+msgid "Display these smilies above the comment form by default:"
+msgstr "显示默认表情："
+
+#: ../common.inc.php:224
+msgid "Put your smilies here, separated by comma. Example: <b>:D, :), :wink:, :(</b>"
+msgstr "在这里输入表情，用逗号隔开。例如：<b>:D, :), :wink:, :(</b>"
+
+#: ../common.inc.php:225
+msgid "Leave this field blank if you want to display all smilies."
+msgstr "如果你想显示全部表情，就将这里留空。"
+
+#: ../common.inc.php:229
+msgid "The name of the input box for comment:"
+msgstr "留言框ID："
+
+#: ../common.inc.php:232
+msgid "If you find Custom Smilies can&#39;t be used in your theme, there is a different id for comment input in your theme. So you could enter the id here."
+msgstr "如果 Custom Smilies 不能在你的主题里使用，应该是你的主题的留言框的ID使用了不同的ID。你可以在这里输入这个ID。"
+
+#: ../common.inc.php:236
+msgid "Popup window width:"
+msgstr "弹出窗口宽度："
+
+#: ../common.inc.php:242
+msgid "Popup window height:"
+msgstr "弹出窗口高度："
+
+#: ../common.inc.php:248
+msgid "Other options:"
+msgstr "其它设置："
+
+#: ../common.inc.php:253
+msgid "Use the action named comment_form in comments.php if your theme support it. So you don&#39;t need to add cs_print_smilies() in comments.php manually."
+msgstr "使用名为 comment_form 的 action，如果你的主题支持它的话。这样，你就不用手动添加 cs_print_smilies() 到 comments.php 了。"
+
+#: ../common.inc.php:260
+msgid "Update Options"
+msgstr "更新设置"
+
+#: ../custom-smilies.php:143
+msgid "Manage"
+msgstr "管理"
+
+#: ../custom-smilies.php:144
+#: ../custom-smilies.php:156
+msgid "Options"
+msgstr "设置"
+
+#: ../for25.php:6
+#: ../for27.php:47
+msgid "Smilies"
+msgstr "表情"
+
+#: ../lang.php:15
+msgid "Custom Smilies"
+msgstr "自定义表情"
+
+#: ../lang.php:20
+msgid "Insert Smilies"
+msgstr "插入表情"
+
+#~ msgid "Smilies Management"
+#~ msgstr "表情管理"
 #~ msgid ""
 #~ "The file init.php is nonexistent, and Custom Smilies has no permission to "
 #~ "create it. You must create it in %s manually"

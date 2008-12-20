@@ -88,6 +88,28 @@ function clcs_options_admin_page() {
 				$updated = true;
 			}
 		}
+		if (array_key_exists('popup_win_width', $_POST)) {
+			$clcs_options = get_option('clcs_options');
+			if (!array_key_exists('popup_win_width', $clcs_options)) {
+				$clcs_options['popup_win_width'] = 0;
+			}
+			if ($_POST['popup_win_width'] != $clcs_options['popup_win_width']) {
+				$clcs_options['popup_win_width'] = $_POST['popup_win_width'];
+				update_option('clcs_options', $clcs_options);
+				$updated = true;
+			}
+		}
+		if (array_key_exists('popup_win_height', $_POST)) {
+			$clcs_options = get_option('clcs_options');
+			if (!array_key_exists('popup_win_height', $clcs_options)) {
+				$clcs_options['popup_win_height'] = 0;
+			}
+			if ($_POST['popup_win_height'] != $clcs_options['popup_win_height']) {
+				$clcs_options['popup_win_height'] = $_POST['popup_win_height'];
+				update_option('clcs_options', $clcs_options);
+				$updated = true;
+			}
+		}
 		if ($updated) {
 			$clcs_message = __('Preferences updated.', 'custom_smilies');
 		} else {
@@ -208,6 +230,18 @@ function clcs_options_admin_page() {
 				<td>
 					<input type="text" value="<?php if (array_key_exists('comment_textarea', $clcs_options)) echo $clcs_options['comment_textarea']; ?>" name="comment_textarea" style="width:95%"><br />
 					<?php _e('If you find Custom Smilies can&#39;t be used in your theme, there is a different id for comment input in your theme. So you could enter the id here.', 'custom_smilies'); ?>
+				</td>
+			</tr>
+			<tr valign="top">
+				<th scope="row"><?php _e('Popup window width:', 'custom_smilies'); ?></th>
+				<td>
+					<input type="text" value="<?php if (array_key_exists('popup_win_width', $clcs_options)) echo $clcs_options['popup_win_width']; else echo '0'; ?>" name="popup_win_width" style="width:30%">
+				</td>
+			</tr>
+			<tr valign="top">
+				<th scope="row"><?php _e('Popup window height:', 'custom_smilies'); ?></th>
+				<td>
+					<input type="text" value="<?php if (array_key_exists('popup_win_height', $clcs_options)) echo $clcs_options['popup_win_height']; else echo '0'; ?>" name="popup_win_height" style="width:30%">
 				</td>
 			</tr>
 			<tr valign="top">

@@ -15,6 +15,32 @@ Custom Smilies was selected as one of [30+ plugins for WordPress comments](http:
 
 This plugin was first released in 2005 and it is now updated to be compatible with WordPress 2.3.2.
 
+- Version 2.5:
+	+ Fixed: A JS error in IE.
+- Version 2.3:
+	+ Fixed: Serious logical bug.
+- Version 2.2:
+	+ Fixed: The method of checking init.php
+	+ Fixed: Optimize tips.
+	+ Added: l8n and L10n.
+	+ Added: Add cs_print_smilies() to the action named comment_form.
+	+ Fixed: Replace init.php with DB.
+	+ Added: TinyMCE button.
+- Version 2.1:
+	+ Added: Check whether init.php is writeable.
+	+ Fixed: Fix the path of init.php
+- Version 2.0:
+	+ Fixed: Support WordPress 2.5 or greater
+- Version 1.2:
+	+ Added: More/Less link
+	+ Fixed: Blog URL changed to WordPress URL
+- Version 1.1: 
+	+ Added: Automatically put a space after the smilie
+	+ Added: The ability to specify which smilies to be displayed above the comment form
+	+ Added: Return all smilies with cs_all_smilies()
+	+ Fixed: Problems with file names 
+- Version 1.0: First release. 
+
 == Installation ==
 
 1. Download and extract custom-smilies.zip; then, upload `init.php` and `custom-smilies.php` to the `/wp-content/plugins/custom-smilies` directory. Upload `smilies` folder to the `/wp-includes/images` directory.

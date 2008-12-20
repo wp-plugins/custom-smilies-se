@@ -16,8 +16,8 @@
 			ed.addCommand('mceclcs', function() {
 				ed.windowManager.open({
 					file : url + '/smilies.htm',
-					width : 250 + parseInt(ed.getLang('clcs.delta_width', 0)),
-					height : 160 + parseInt(ed.getLang('clcs.delta_height', 0)),
+					width : parseInt(ed.getLang('clcs.delta_width', 0)),
+					height : parseInt(ed.getLang('clcs.delta_height', 0)),
 					inline : 1
 				}, {
 					plugin_url : url

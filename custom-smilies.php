@@ -53,11 +53,9 @@ Version History:
 	+ Fixed: A JS error in IE.
 - Version 2.6:
 	+ Fixed: Modify management link.(only for 2.7)
-	+ Fixed: Remove cs_print_smilies() from the action named comment_form.
-	* Added: (only for 2.7)
+	+ Added: Switch to use the action named comment_form.
 	+ Added: Italian.(Translated by Gianni Diurno site: gidibao.net)
-	* Fixed: The size of the smilies list.
-	* Added: Custom the size of The popup window which contains the smilies list.
+	+ Added: Custom the size of The popup window which contains the smilies list.
 */
 // Pre-2.6 compatibility
 if (!defined('WP_CONTENT_URL'))

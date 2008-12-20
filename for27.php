@@ -75,7 +75,7 @@ function clcs_addbuttons() {
 		return;
 	if ( get_user_option('rich_editing') == 'true') {
 		add_filter('mce_external_plugins', 'add_clcs_tinymce_plugin');
-		//add_filter('mce_external_languages', 'add_clcs_tinymce_language');
+		add_filter('mce_external_languages', 'add_clcs_tinymce_language');
 		add_filter('mce_buttons', 'register_clcs_button');
 	}
 }
