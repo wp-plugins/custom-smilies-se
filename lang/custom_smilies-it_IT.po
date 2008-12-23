@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Custom Smilies in italiano\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-11-06 01:35+0800\n"
+"POT-Creation-Date: 2008-12-20 18:03+0800\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Gianni Diurno (aka gidibao) <gidibao@gmail.com>\n"
 "Language-Team: Gianni Diurno | http://gidibao.net/ <gidibao@gmail.com>\n"
@@ -17,82 +17,120 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ./..\n"
 
-#: ../custom-smilies.php:82
-msgid "Manage"
-msgstr "Gestione"
+#: ../common.inc.php:114
+msgid "Preferences updated."
+msgstr "Le preferenze sono state aggiornate."
 
-#: ../custom-smilies.php:83
-msgid "Options"
-msgstr "Opzioni"
+#: ../common.inc.php:116
+msgid "No changes made."
+msgstr "Non é stato effettuato alcun cambiamento."
 
-#: ../for25.php:11
-#: ../for25.php:43
-msgid "Smilies Options"
-msgstr "Opzioni Smilies"
-
-#: ../for25.php:11
-#: ../for25.php:12
-#: ../for25.php:19
-#: ../for25.php:20
-msgid "Smilies"
-msgstr "Smilies"
-
-#: ../for25.php:12
-msgid "Smilies Management"
-msgstr "Gestione Smilies"
-
-#: ../for25.php:47
-msgid "Display these smilies above the comment form by default:"
-msgstr "Mostra questi smilies sopra il modulo dei commenti (predefinito):"
-
-#: ../for25.php:50
-msgid "Put your smilies here, separated by comma. Example: <b>:D, :), :wink:, :(</b>"
-msgstr "Inserisci qui i tuoi smilies separandoli con una virgola. Ad esempio: <b>:D, :), :wink:, :(</b>"
-
-#: ../for25.php:51
-msgid "Leave this field blank if you want to display all smilies."
-msgstr "Lascia in bianco qualora decidessi di mostrare tutti gli smilies."
-
-#: ../for25.php:56
-msgid "Update Options"
-msgstr "Aggiorna le opzioni"
-
-#: ../for25.php:73
+#: ../common.inc.php:132
 msgid "Your smilies have been updated."
 msgstr "Le opzioni sono state aggiornate."
 
-#: ../for25.php:82
+#: ../common.inc.php:141
 msgid "Manage Smilies"
 msgstr "Impostazione Smilies"
 
-#: ../for25.php:85
+#: ../common.inc.php:144
 msgid "Display all smilies"
 msgstr "Mostra tutti gli Smilies"
 
-#: ../for25.php:85
+#: ../common.inc.php:144
 msgid "Display undefined smilies only"
 msgstr "Mostra solamente gli Smilies non definiti"
 
-#: ../for25.php:88
+#: ../common.inc.php:147
 msgid "Please note that your smilies cannot contain any of these characters: ' \" \\"
 msgstr "Assicurati che gli Smilies non contengano nessuno di questi caratteri: ' \" \\"
 
-#: ../for25.php:95
-#: ../for25.php:101
-#: ../for25.php:107
+#: ../common.inc.php:154
+#: ../common.inc.php:160
+#: ../common.inc.php:166
 msgid "Smilie"
 msgstr "Smilie"
 
-#: ../for25.php:98
-#: ../for25.php:104
-#: ../for25.php:110
+#: ../common.inc.php:157
+#: ../common.inc.php:163
+#: ../common.inc.php:169
 msgid "What to type"
 msgstr "Cosa scrivere"
 
-#: ../for25.php:154
+#: ../common.inc.php:213
 msgid "Update"
 msgstr "Aggiorna"
 
+#: ../common.inc.php:217
+#: ../for25.php:6
+#: ../for27.php:47
+msgid "Smilies Options"
+msgstr "Opzioni Smilies"
+
+#: ../common.inc.php:221
+msgid "Display these smilies above the comment form by default:"
+msgstr "Mostra questi smilies sopra il modulo dei commenti (predefinito):"
+
+#: ../common.inc.php:224
+msgid "Put your smilies here, separated by comma. Example: <b>:D, :), :wink:, :(</b>"
+msgstr "Inserisci qui i tuoi smilies separandoli con una virgola. Ad esempio: <b>:D, :), :wink:, :(</b>"
+
+#: ../common.inc.php:225
+msgid "Leave this field blank if you want to display all smilies."
+msgstr "Lascia in bianco qualora decidessi di mostrare tutti gli smilies."
+
+#: ../common.inc.php:229
+msgid "The name of the input box for comment:"
+msgstr "Nome campo dei commenti:"
+
+#: ../common.inc.php:232
+msgid "If you find Custom Smilies can&#39;t be used in your theme, there is a different id for comment input in your theme. So you could enter the id here."
+msgstr "Qualora Custom Smilies non potesse essere utilizzato con il tuo tema, il problema potrebbe dipendere da un id  per i commenti differente per il tuo tema. Inserisci qui l'id del tuo tema."
+
+#: ../common.inc.php:236
+msgid "Popup window width:"
+msgstr "Larghezza finestra popup:"
+
+#: ../common.inc.php:242
+msgid "Popup window height:"
+msgstr "Altezza finestra popup:"
+
+#: ../common.inc.php:248
+msgid "Other options:"
+msgstr "Altre opzioni"
+
+#: ../common.inc.php:253
+msgid "Use the action named comment_form in comments.php if your theme support it. So you don&#39;t need to add cs_print_smilies() in comments.php manually."
+msgstr "Verrà utilizzato l'action comment_form nel file comments.php qualora fosse supportato dal tuo tema. In questo caso, non dovrai aggiungere manualmente cs_print_smilies() nel file comments.php."
+
+#: ../common.inc.php:260
+msgid "Update Options"
+msgstr "Aggiorna le opzioni"
+
+#: ../custom-smilies.php:143
+msgid "Manage"
+msgstr "Gestione"
+
+#: ../custom-smilies.php:144
+#: ../custom-smilies.php:156
+msgid "Options"
+msgstr "Opzioni"
+
+#: ../for25.php:6
+#: ../for27.php:47
+msgid "Smilies"
+msgstr "Smilies"
+
+#: ../lang.php:15
+msgid "Custom Smilies"
+msgstr "Custom Smilies"
+
+#: ../lang.php:20
+msgid "Insert Smilies"
+msgstr "Inserisci Smilies"
+
+#~ msgid "Smilies Management"
+#~ msgstr "Gestione Smilies"
 #~ msgid ""
 #~ "The file init.php is nonexistent, and Custom Smilies has no permission to "
 #~ "create it. You must create it in %s manually"

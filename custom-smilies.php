@@ -57,6 +57,7 @@ Version History:
 	+ Added: Italian.(Translated by Gianni Diurno site: gidibao.net)
 	+ Added: Custom the size of The popup window which contains the smilies list.
 	+ Added: Custom the id of the comment textarea.
+	+ Added: Cursor on the smilies.
 */
 // Pre-2.6 compatibility
 if (!defined('WP_CONTENT_URL'))
