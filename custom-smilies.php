@@ -4,7 +4,7 @@ Plugin Name: Custom Smilies
 Plugin URI: http://goto8848.net/projects/custom-smilies/
 Description: Personalize your posts and comments using custom smilies. Previously named Custom Smileys. it (older than version  2.0) maintained by <a href="http://onetruebrace.com/2007/11/28/custom-smilies/">QAD</a>.
 Author: Crazy Loong
-Version: 2.5
+Version: 2.6 beta
 Author URI: http://goto8848.net
 
 Copyright 2005 - 2008 Crazy Loong  (email : crazyloong@gmail.com)
@@ -56,6 +56,7 @@ Version History:
 	+ Added: Switch to use the action named comment_form.
 	+ Added: Italian.(Translated by Gianni Diurno site: gidibao.net)
 	+ Added: Custom the size of The popup window which contains the smilies list.
+	+ Added: Custom the id of the comment textarea.
 */
 // Pre-2.6 compatibility
 if (!defined('WP_CONTENT_URL'))
@@ -187,7 +188,7 @@ function clcs_activate() {
 	}
 	$clcs_options = get_option('clcs_options');
 	if ($clcs_options == false) {
-		$clcs_options = array('use_action_comment_form' => 0, 'commment_textarea' => 'comment');
+		$clcs_options = array('use_action_comment_form' => 0, 'comment_textarea' => 'comment');
 		update_option('clcs_options', $clcs_options);
 	} else {
 		if (!array_key_exists('comment_textarea', $clcs_options)) {
