@@ -358,6 +358,7 @@ function cs_all_smilies() {
 function cs_print_smilies() {
 	global $clcs_options;
 ?>
+	<!-- Custom Smilies - Version <?php echo CLCSVER; ?> -->
 	<style type="text/css">
 	img.wp-smiley-select {cursor: pointer;}
 	</style>

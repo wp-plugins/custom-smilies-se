@@ -75,6 +75,7 @@ define('CLCSINITABSPATH', CLCSABSPATH . 'init.php');
 define('CLCSMGRURL', get_option('siteurl') . '/wp-admin/edit.php?page=' . plugin_basename(CLCSABSFILE));
 define('CLCSOPTURL', get_option('siteurl') . '/wp-admin/options-general.php?page=' . plugin_basename(CLCSABSFILE));
 define('CLCSURL', get_option('siteurl') . '/wp-content/plugins/custom-smilies-se/');
+define('CLCSVER', '2.6');
 
 if (function_exists('load_plugin_textdomain')) {
 	load_plugin_textdomain('custom_smilies', PLUGINDIR . '/' . dirname(plugin_basename(__FILE__)) . '/lang');
@@ -196,7 +197,7 @@ function clcs_activate() {
 			$clcs_options['comment_textarea'] = 'comment';
 		}
 		if (!array_key_exists('use_action_comment_form', $clcs_options)) {
-			$clcs_options['use_action_comment_form'] = 'comment';
+			$clcs_options['use_action_comment_form'] = 0;
 		}
 		update_option('clcs_options', $clcs_options);
 	}
