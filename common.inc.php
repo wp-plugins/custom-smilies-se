@@ -355,9 +355,9 @@ function cs_all_smilies() {
 }
 
 // print smilies list @ comment form
-function cs_print_smilies() {
-	global $clcs_options;
+function clcs_print_smilies($comment_textarea = 'comment') {
 ?>
+
 	<!-- Custom Smilies - Version <?php echo CLCSVER; ?> -->
 	<style type="text/css">
 	img.wp-smiley-select {cursor: pointer;}
@@ -365,9 +365,10 @@ function cs_print_smilies() {
     <script type="text/javascript">
     function grin(tag) {
     	var myField;
+    	var myCommentTextarea = "<?php echo $comment_textarea; ?>";
     	tag = ' ' + tag + ' ';
-        if (document.getElementById('<?php echo $clcs_options['comment_textarea']; ?>') && document.getElementById('<?php echo $clcs_options['comment_textarea']; ?>').type == 'textarea') {
-    		myField = document.getElementById('<?php echo $clcs_options['comment_textarea']; ?>');
+        if (document.getElementById(myCommentTextarea) && document.getElementById(myCommentTextarea).type == 'textarea') {
+    		myField = document.getElementById(myCommentTextarea);
     	} else {
     		return false;
     	}
@@ -428,6 +429,12 @@ function cs_print_smilies() {
     	}
     	echo '</span> <span id="wp-smiley-toggle"><a href="javascript:moreSmilies()">more&nbsp;&raquo;</a></span>';
     }
+}
+
+
+function cs_print_smilies() {
+	global $clcs_options;
+	clcs_print_smilies($clcs_options['comment_textarea']);
 }
 
 if (array_key_exists('use_action_comment_form', $clcs_options) && $clcs_options['use_action_comment_form'] == 1) {
