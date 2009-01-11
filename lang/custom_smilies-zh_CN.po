@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Custom Smilies 2.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-12-20 18:03+0800\n"
+"POT-Creation-Date: 2009-01-03 12:32+0800\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Crazy Loong <crazyloong@gmail.com>\n"
 "Language-Team: Crazy Loong <crazyloong@gmail.com>\n"
@@ -63,7 +63,7 @@ msgstr "更新"
 
 #: ../common.inc.php:217
 #: ../for25.php:6
-#: ../for27.php:47
+#: ../for27.php:179
 msgid "Smilies Options"
 msgstr "表情设置"
 
@@ -107,19 +107,25 @@ msgstr "使用名为 comment_form 的 action，如果你的主题支持它的话
 msgid "Update Options"
 msgstr "更新设置"
 
-#: ../custom-smilies.php:143
+#: ../custom-smilies.php:110
 msgid "Manage"
 msgstr "管理"
 
-#: ../custom-smilies.php:144
-#: ../custom-smilies.php:156
+#: ../custom-smilies.php:111
+#: ../custom-smilies.php:123
 msgid "Options"
 msgstr "设置"
 
 #: ../for25.php:6
-#: ../for27.php:47
+#: ../for27.php:179
 msgid "Smilies"
 msgstr "表情"
+
+#: ../for27.php:95
+#: ../for27.php:99
+#: ../for27.php:103
+msgid "Close"
+msgstr "关闭"
 
 #: ../lang.php:15
 msgid "Custom Smilies"

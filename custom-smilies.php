@@ -22,45 +22,6 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-
-Version History:
------------------ Do it by QAD ---------------------
-- Version 1.0: First release. 
-- Version 1.1: 
-	+ Added: Automatically put a space after the smilie
-	+ Added: The ability to specify which smilies to be displayed above the comment form
-	+ Added: Return all smilies with cs_all_smilies()
-	+ Fixed: Problems with file names 
-- Version 1.2:
-	+ Added: More/Less link
-	+ Fixed: Blog URL changed to WordPress URL
------------------ Do it by Crazy Loong -------------
-- Version 2.0:
-	+ Fixed: Support WordPress 2.5 or greater
-- Version 2.1:
-	+ Added: Check whether init.php is writeable.
-	+ Fixed: Fix the path of init.php
-- Version 2.2:
-	+ Fixed: The method of checking init.php
-	+ Fixed: Optimize tips.
-	+ Added: l8n and L10n.
-	+ Added: Add cs_print_smilies() to the action named comment_form.
-	+ Fixed: Replace init.php with DB.
-	+ Added: TinyMCE button.
-- Version 2.3:
-	+ Fixed: Serious logical bug.
-- Version 2.5:
-	+ Fixed: A JS error in IE.
-- Version 2.6:
-	+ Fixed: Modify management link.(only for 2.7)
-	+ Added: Switch to use the action named comment_form.
-	+ Added: Italian.(Translated by Gianni Diurno site: gidibao.net)
-	+ Added: Custom the size of The popup window which contains the smilies list.
-	+ Added: Custom the id of the comment textarea.
-	+ Added: Cursor on the smilies.
-	+ Added: Smilies for QuickPress in Dashboard.
-	+ Added: Smilies for Reply to Comment in the background.
-	+ Added: Smilies for Edit Comment in the background.
 */
 // Pre-2.6 compatibility
 if (!defined('WP_CONTENT_URL'))

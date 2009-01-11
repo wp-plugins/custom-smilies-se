@@ -15,6 +15,16 @@ Custom Smilies was selected as one of [30+ plugins for WordPress comments](http:
 
 This plugin was first released in 2005 and it is now updated to be compatible with WordPress 2.3.2.
 
+- Version 2.6:
+	+ Fixed: Modify management link.(only for 2.7)
+	+ Added: Switch to use the action named comment_form.
+	+ Added: Italian. Translated by [Gianni Diurno](http://gidibao.net "gidibao.net").
+	+ Added: Custom the size of The popup window which contains the smilies list.
+	+ Added: Custom the id of the comment textarea.
+	+ Added: Cursor on the smilies.
+	+ Added: Smilies for QuickPress in Dashboard.
+	+ Added: Smilies for Reply to Comment in the background.
+	+ Added: Smilies for Edit Comment in the background.
 - Version 2.5:
 	+ Fixed: A JS error in IE.
 - Version 2.3:
@@ -48,7 +58,7 @@ This plugin was first released in 2005 and it is now updated to be compatible wi
 1. Put your smilies in smilies folder (wp-includes/images/smilies/)
 1. Change the emoticons by navigating to Manage > Smilies and complete the form
 
-Advanced use: [Click here to read my blog post](http://onetruebrace.com/custom-smilies "Custom Smilies")
+Advanced use: [Click here to read my blog post](http://goto8848.net/projects/custom-smilies/ "Custom Smilies")
 
 == Screenshots ==
 
