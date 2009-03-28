@@ -213,7 +213,6 @@ function clcs_add_custom_box() {
 	add_meta_box( 'clcsbox', __('Smilies', 'custom_smilies'), 'clcs_inner_custom_box', 'post', 'normal');
 	add_meta_box( 'clcsbox', __('Smilies', 'custom_smilies'), 'clcs_inner_custom_box', 'page', 'normal');
 }
-*/
 
 function add_clcs_tinymce_plugin($plugins_array) {
 	$plugins_array['clcs'] = CLCSURL . 'tinymce/plugins/custom-smilies-se/editor_plugin.js';
@@ -238,4 +237,5 @@ function clcs_addbuttons() {
 	}
 }
 add_action('init', 'clcs_addbuttons');
+*/
 ?>

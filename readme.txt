@@ -3,7 +3,7 @@ Contributors: Crazy Loong, quanganhdo(under version 2.0)
 Tags: smilies, smileys, posts, comments
 Requires at least: 2.3
 Tested up to: 2.7
-Stable tag: 2.6
+Stable tag: 2.7
 
 Custom Smilies (previously named Custom Smileys) gives you a chance to personalize your posts and comments using smilies of your choice instead of default ones.
 
@@ -15,6 +15,9 @@ Custom Smilies was selected as one of [30+ plugins for WordPress comments](http:
 
 This plugin was first released in 2005 and it is now updated to be compatible with WordPress 2.3.2.
 
+- Version 2.7:
+	+ Fixed: The functions of smilies button when you are using non WYSIWYG editor.
+	+ Added: Compatible with TinyMCEComments.
 - Version 2.6:
 	+ Fixed: Modify management link.(only for 2.7)
 	+ Added: Switch to use the action named comment_form.
