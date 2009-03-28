@@ -103,6 +103,17 @@ function smilies_win_show(ev, target) {
 		jQuery("#smiliesdiv").html("<div style=\"text-align: right; margin-bottom: 5px;\"><a href=\"javascript: smilies_win_hide();void(0);\"><?php _e('Close', 'custom_smilies') ?></a></div>" + smilies_list);
 		return;
 	}
+	if (target == "post") {
+		<?php //global $user_ID; $rich_editing_flag = get_usermeta($user_ID, 'rich_editing'); ?>
+		if (jQuery("#quicktags").css("display") == "block") {
+			jQuery("#smiliesdiv").html("<div style=\"text-align: right; margin-bottom: 5px;\"><a href=\"javascript: smilies_win_hide();void(0);\"><?php _e('Close', 'custom_smilies') ?></a></div>" + smilies_list4post);
+		} else {
+			jQuery("#smiliesdiv").html("<div style=\"text-align: right; margin-bottom: 5px;\"><a href=\"javascript: smilies_win_hide();void(0);\"><?php _e('Close', 'custom_smilies') ?></a></div>" + smilies_list4wysiwyg);
+		}
+		//alert(switchEditors.mode);
+		//allPrpos(switchEditors);
+		return;
+	}
 }
 function smilies_win_hide() {
 	jQuery("#smiliesdiv").css("display", "none");
@@ -116,18 +127,24 @@ jQuery(function () {
 add_action('admin_head-index.php', 'clcs_add_common_scripts', 12);
 add_action('admin_head-edit-comments.php', 'clcs_add_common_scripts', 12);
 add_action('admin_head-comment.php', 'clcs_add_common_scripts', 12);
+add_action('admin_head-post-new.php', 'clcs_add_common_scripts', 12);
+add_action('admin_head-post.php', 'clcs_add_common_scripts', 12);
 
 // Add smilies for QuickPress
 function clcs_media_buttons() {
+	global $hook_suffix;
+	$target4action = ($hook_suffix == 'index.php') ? 'quickpress' : 'post';
 ?>
 <script type="text/javascript">
 jQuery(function () {
 	jQuery("#smilies_button").click(function(ev){
-		smilies_win_show(ev, "quickpress");
+		smilies_win_show(ev, "<?php echo $target4action; ?>");
 	});
+	// <?php global $hook_suffix; echo $hook_suffix; ?>
+
 });
 </script>
-<a href="javascript:void(0);" id="smilies_button"><img width="12" height="12" alt="Add Smilie" src="<?php echo CLCSURL; ?>tinymce/plugins/custom-smilies-se/img/smile.gif"/></a>
+<a href="javascript:void(0);" id="smilies_button"><img width="12" height="12" alt="Add Smilie" src="<?php echo CLCSURL; ?>images/smile.gif"/></a>
 <?php
 }
 add_action('media_buttons', 'clcs_media_buttons', 12);
@@ -138,6 +155,15 @@ function clcs_add_quickpress_scripts() {
 <?php
 }
 add_action('admin_head-index.php', 'clcs_add_quickpress_scripts', 12);
+
+function clcs_add_post_scripts() {
+?>
+<script type="text/javascript" src="<?php echo CLCSURL . 'genlist_post.js.php'; ?>"></script>
+<script type="text/javascript" src="<?php echo CLCSURL . 'genlist_post4wysiwyg.js.php'; ?>"></script>
+<?php
+}
+add_action('admin_head-post-new.php', 'clcs_add_post_scripts', 12);
+add_action('admin_head-post.php', 'clcs_add_post_scripts', 12);
 
 // add smilies for reply in background.
 function clcs_add_reply_scripts() {

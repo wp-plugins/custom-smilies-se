@@ -364,6 +364,17 @@ function clcs_print_smilies($comment_textarea = 'comment') {
 	</style>
     <script type="text/javascript">
     function grin(tag) {
+    	if (typeof tinyMCE != 'undefined') {
+    		grin_tinymcecomments(tag);
+    	} else {
+    		grin_plain(tag);
+    	}
+    }
+    function grin_tinymcecomments(tag) {
+    	tinyMCE.execCommand('mceInsertContent', false, ' ' + tag + ' ');
+    }
+    
+    function grin_plain(tag) {
     	var myField;
     	var myCommentTextarea = "<?php echo $comment_textarea; ?>";
     	tag = ' ' + tag + ' ';

@@ -53,10 +53,10 @@ This plugin was first released in 2005 and it is now updated to be compatible wi
 
 == Installation ==
 
-1. Download and extract custom-smilies.zip; then, upload `init.php` and `custom-smilies.php` to the `/wp-content/plugins/custom-smilies` directory. Upload `smilies` folder to the `/wp-includes/images` directory.
+1. Download and extract custom-smilies.zip
 1. Activate Custom Smilies in your Admin Panel
 1. Put your smilies in smilies folder (wp-includes/images/smilies/)
-1. Change the emoticons by navigating to Manage > Smilies and complete the form
+1. Change the emoticons by navigating to Settings > Smilies and complete the form
 
 Advanced use: [Click here to read my blog post](http://goto8848.net/projects/custom-smilies/ "Custom Smilies")
 
@@ -68,4 +68,4 @@ Advanced use: [Click here to read my blog post](http://goto8848.net/projects/cus
 
 == Troubleshooting ==
 
-In case Custom Smilies doesn’t work well with your blog, make sure the `wp-plugins/custom-smilies/init.php` file is writable. CHMOD it to 777 or something like that.
+Please visit http://goto8848.net/projects/custom-smilies/
