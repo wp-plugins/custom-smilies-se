@@ -4,7 +4,7 @@ Plugin Name: Custom Smilies
 Plugin URI: http://goto8848.net/projects/custom-smilies/
 Description: Personalize your posts and comments using custom smilies. Previously named Custom Smileys. it (older than version  2.0) maintained by <a href="http://onetruebrace.com/2007/11/28/custom-smilies/">QAD</a>.
 Author: Crazy Loong
-Version: 2.6
+Version: 2.7
 Author URI: http://goto8848.net
 
 Copyright 2005 - 2008 Crazy Loong  (email : crazyloong@gmail.com)
@@ -23,6 +23,9 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
+
+define('CLCSVER', '2.7');
+
 // Pre-2.6 compatibility
 if (!defined('WP_CONTENT_URL'))
 	define('WP_CONTENT_URL', get_option('siteurl') . '/wp-content');
@@ -39,7 +42,6 @@ define('CLCSINITABSPATH', CLCSABSPATH . 'init.php');
 define('CLCSMGRURL', get_option('siteurl') . '/wp-admin/edit.php?page=' . plugin_basename(CLCSABSFILE));
 define('CLCSOPTURL', get_option('siteurl') . '/wp-admin/options-general.php?page=' . plugin_basename(CLCSABSFILE));
 define('CLCSURL', get_option('siteurl') . '/wp-content/plugins/custom-smilies-se/');
-define('CLCSVER', '2.6');
 
 if (function_exists('load_plugin_textdomain')) {
 	load_plugin_textdomain('custom_smilies', PLUGINDIR . '/' . dirname(plugin_basename(__FILE__)) . '/lang');
