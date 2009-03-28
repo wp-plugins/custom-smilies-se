@@ -9,6 +9,8 @@ Custom Smilies (previously named Custom Smileys) gives you a chance to personali
 
 == Description ==
 
+Important: The more infomation in [homepage](http://goto8848.net/projects/custom-smilies/).
+
 Custom Smilies (previously named Custom Smileys) gives you a chance to personalize your posts and comments using smilies of your choice instead of default ones.
 
 Custom Smilies was selected as one of [30+ plugins for WordPress comments](http://mashable.com/2007/07/24/wordpress-comments/ "30+ plugins for WordPress comments") and [300+ tools for running your WordPress blog](http://mashable.com/2007/08/16/wordpress-god300-tools-for-running-your-wordpress-blog/ "300+ tools for running your WordPress blog"). These lists were conducted by Mashable, as of July 24th, 2007 and August 16th, 2007.
