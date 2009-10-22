@@ -20,6 +20,7 @@ This plugin was first released in 2005 and it is now updated to be compatible wi
 - Version 2.8:
 	+ Fixed: Some path.
 	+ Fixed: Can insert smilies when you edit pages and post a new page now.
+	+ Fixed: Coordinate smile.gif with other icons.
 	+ Added: Export and input.
 	+ Added: French. Translated by [Pierre Sudarovich](http://pierre.sudarovich.free.fr/ "pierre.sudarovich.free.fr").
 - Version 2.7:
