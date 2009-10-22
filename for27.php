@@ -179,8 +179,8 @@ jQuery(function (){
 	jQuery('#ed_reply_clcs_smilies').click(function(ev){
 		smilies_win_show(ev, "reply");
 	});
-	if (edButtons) alert(edButtons[edButtons.length - 1]);
-
+	//if (edButtons) alert(edButtons[edButtons.length - 1].name);
+/*
 edButtons[edButtons.length] =
 new edButton('ed_smilies'
 ,'smilies'
@@ -188,7 +188,7 @@ new edButton('ed_smilies'
 ,'</blockquote>\n\n'
 ,'q'
 );
-
+*/
 });
 </script>
 <?php
