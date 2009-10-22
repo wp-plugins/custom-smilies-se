@@ -129,6 +129,8 @@ add_action('admin_head-edit-comments.php', 'clcs_add_common_scripts', 12);
 add_action('admin_head-comment.php', 'clcs_add_common_scripts', 12);
 add_action('admin_head-post-new.php', 'clcs_add_common_scripts', 12);
 add_action('admin_head-post.php', 'clcs_add_common_scripts', 12);
+add_action('admin_head-page-new.php', 'clcs_add_common_scripts', 12);
+add_action('admin_head-page.php', 'clcs_add_common_scripts', 12);
 
 // Add smilies for QuickPress
 function clcs_media_buttons() {
@@ -164,6 +166,8 @@ function clcs_add_post_scripts() {
 }
 add_action('admin_head-post-new.php', 'clcs_add_post_scripts', 12);
 add_action('admin_head-post.php', 'clcs_add_post_scripts', 12);
+add_action('admin_head-page-new.php', 'clcs_add_post_scripts', 12);
+add_action('admin_head-page.php', 'clcs_add_post_scripts', 12);
 
 // add smilies for reply in background.
 function clcs_add_reply_scripts() {
@@ -175,6 +179,16 @@ jQuery(function (){
 	jQuery('#ed_reply_clcs_smilies').click(function(ev){
 		smilies_win_show(ev, "reply");
 	});
+	if (edButtons) alert(edButtons[edButtons.length - 1]);
+
+edButtons[edButtons.length] =
+new edButton('ed_smilies'
+,'smilies'
+,'\n\n<blockquote>'
+,'</blockquote>\n\n'
+,'q'
+);
+
 });
 </script>
 <?php

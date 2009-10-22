@@ -4,7 +4,7 @@ Plugin Name: Custom Smilies
 Plugin URI: http://goto8848.net/projects/custom-smilies/
 Description: Personalize your posts and comments using custom smilies. Previously named Custom Smileys. it (older than version  2.0) maintained by <a href="http://onetruebrace.com/2007/11/28/custom-smilies/">QAD</a>.
 Author: Crazy Loong
-Version: 2.7
+Version: 2.8 beta
 Author URI: http://goto8848.net
 
 Copyright 2005 - 2008 Crazy Loong  (email : crazyloong@gmail.com)
@@ -24,7 +24,7 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
-define('CLCSVER', '2.7');
+define('CLCSVER', '2.8');
 
 // Pre-2.6 compatibility
 if (!defined('WP_CONTENT_URL'))
@@ -36,12 +36,16 @@ if (!defined('WP_PLUGIN_URL'))
 if (!defined('WP_PLUGIN_DIR'))
 	define('WP_PLUGIN_DIR', WP_CONTENT_DIR . '/plugins');
 
+if (!defined('WP_ABSDIR'))
+	define('WP_ABSDIR', substr(str_replace('\\', '/', ABSPATH), 0, -1));
 define('CLCSABSPATH', str_replace('\\', '/', dirname(__FILE__)) . '/');
 define('CLCSABSFILE', str_replace('\\', '/', dirname(__FILE__)) . '/' . basename(__FILE__));
+define('CLCSRELDIR', str_replace(WP_ABSDIR . '/', '', CLCSABSPATH));
+define('CLCSRELURL', CLCSRELDIR);
 define('CLCSINITABSPATH', CLCSABSPATH . 'init.php');
-define('CLCSMGRURL', get_option('siteurl') . '/wp-admin/edit.php?page=' . plugin_basename(CLCSABSFILE));
-define('CLCSOPTURL', get_option('siteurl') . '/wp-admin/options-general.php?page=' . plugin_basename(CLCSABSFILE));
-define('CLCSURL', get_option('siteurl') . '/wp-content/plugins/custom-smilies-se/');
+define('CLCSMGRURL', admin_url('edit.php?page=' . plugin_basename(CLCSABSFILE)));
+define('CLCSOPTURL', admin_url('options-general.php?page=' . plugin_basename(CLCSABSFILE)));
+define('CLCSURL', site_url(CLCSRELDIR));
 
 if (function_exists('load_plugin_textdomain')) {
 	load_plugin_textdomain('custom_smilies', PLUGINDIR . '/' . dirname(plugin_basename(__FILE__)) . '/lang');
