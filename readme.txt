@@ -3,7 +3,7 @@ Contributors: Crazy Loong, quanganhdo(under version 2.0)
 Tags: smilies, smileys, posts, comments
 Requires at least: 2.3
 Tested up to: 2.8.5
-Stable tag: 2.8 beta
+Stable tag: 2.8
 
 Custom Smilies (previously named Custom Smileys) gives you a chance to personalize your posts and comments using smilies of your choice instead of default ones.
 
