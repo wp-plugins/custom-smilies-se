@@ -120,7 +120,11 @@ if (version_compare($wp_version, '2.5', '<')) {
 			return $action_links;
 		}
 	} else {
-		include('for27.php'); // For 2.7 and above
+		if ((version_compare($wp_version, '2.9', '<'))) {
+			include('for27.php'); // For 2.7 and 2.8
+		} else {
+			include('for29.php'); // For 2.9 and above
+		}
 
 		add_filter('plugin_action_links', 'add_settings_tab', 10, 4);
 		function add_settings_tab($action_links, $plugin_file, $plugin_data, $context) {
@@ -160,7 +164,11 @@ function clcs_activate() {
 	}
 	$clcs_options = get_option('clcs_options');
 	if ($clcs_options == false) {
-		$clcs_options = array('use_action_comment_form' => 0, 'comment_textarea' => 'comment');
+		$clcs_options = array(
+			'use_action_comment_form' => 0,
+			'comment_textarea' => 'comment',
+			'smilies_path' => '/wp-includes/images/smilies'
+		);
 		update_option('clcs_options', $clcs_options);
 	} else {
 		if (!array_key_exists('comment_textarea', $clcs_options)) {
@@ -168,6 +176,9 @@ function clcs_activate() {
 		}
 		if (!array_key_exists('use_action_comment_form', $clcs_options)) {
 			$clcs_options['use_action_comment_form'] = 0;
+		}
+		if (!array_key_exists('smilies_path', $clcs_options)) {
+			$clcs_options['smilies_path'] = '/wp-includes/images/smilies';
 		}
 		update_option('clcs_options', $clcs_options);
 	}

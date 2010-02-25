@@ -9,6 +9,24 @@ if (!get_option('use_smilies')) {
     update_option('use_smilies', 1);
 }
 
+function clcs_get_smilies_path() {
+	global $clcs_options;
+	if (array_key_exists('smilies_path', $clcs_options)) {
+		return get_option('siteurl') . $clcs_options['smilies_path'];
+	} else {
+		return get_option('siteurl') . '/wp-includes/images/smilies';
+	}
+}
+
+function clcs_get_smilies_dir() {
+	global $clcs_options;
+	if (array_key_exists('smilies_path', $clcs_options)) {
+		return ABSPATH . $clcs_options['smilies_path'];
+	} else {
+		return ABSPATH . 'wp-includes/images/smilies';
+	}
+}
+
 function clcs_inner_custom_box() {
 	
 	?>
@@ -46,7 +64,7 @@ function clcs_inner_custom_box() {
     }
     </script><?php
             $smilies = cs_load_existing_smilies();
-            $url = get_bloginfo('wpurl').'/wp-includes/images/smilies';
+            $url = clcs_get_smilies_path();
 
 
         	foreach ($smilies as $k => $v) {
@@ -57,10 +75,11 @@ function clcs_inner_custom_box() {
 
 // smilies options page
 function clcs_options_admin_page() {
-	global $wpsmiliestrans;
+	global $wpsmiliestrans, $clcs_options;
 	
 	if ($_POST['update-options']) {
 		$updated = false;
+		$is_illegal_dir = false;
 		if (get_option('cs_list') != $_POST['list']) {
 			update_option('cs_list', $_POST['list']);
 			$updated = true;
@@ -110,10 +129,25 @@ function clcs_options_admin_page() {
 				$updated = true;
 			}
 		}
+		if (array_key_exists('smilies_path', $_POST)) {
+			$clcs_options = get_option('clcs_options');
+			if (is_dir(ABSPATH . $_POST['smilies_path'])) {
+				if (($_POST['smilies_path'] != $clcs_options['smilies_path'])) {
+					$clcs_options['smilies_path'] = $_POST['smilies_path'];
+					update_option('clcs_options', $clcs_options);
+					$updated = true;
+				}
+			} else {
+				$is_illegal_dir = true;
+			}
+		}
 		if ($updated) {
 			$clcs_message = __('Preferences updated.', 'custom_smilies');
 		} else {
 			$clcs_message = __('No changes made.', 'custom_smilies');
+		}
+		if ($is_illegal_dir) {
+			$clcs_message .= __(' The path of smilies that you want to set is illegal.', 'custom_smilies');
 		}
 		echo '<div id="message" class="updated fade"><p><b>' . $clcs_message . '</b></p></div>';
 	}
@@ -194,7 +228,7 @@ function clcs_options_admin_page() {
 <?php
             }
 ?>
-                    <td><img src="../wp-includes/images/smilies/<?php echo $smilie ?>" /></td>
+                    <td><img src="<?php echo clcs_get_smilies_path(); ?>/<?php echo $smilie ?>" /></td>
                     <td><input type="text" name="<?php echo $smilie_name ?>" value="<?php echo $old_smilies[$smilie] ?>" style="text-align:center" /></td>
 <?php
             // row ends
@@ -233,6 +267,13 @@ function clcs_options_admin_page() {
 				</td>
 			</tr>
 			<tr valign="top">
+				<th scope="row"><?php _e('The path of the smilies:', 'custom_smilies'); ?></th>
+				<td>
+					<input type="text" value="<?php if (array_key_exists('smilies_path', $clcs_options)) echo $clcs_options['smilies_path']; ?>" name="smilies_path" style="width:95%"><br />
+					<?php _e('This is relative to the WordPress directory. Default is "/wp-includes/images/smilies".', 'custom_smilies'); ?>
+				</td>
+			</tr>
+			<tr valign="top">
 				<th scope="row"><?php _e('Popup window width:', 'custom_smilies'); ?></th>
 				<td>
 					<input type="text" value="<?php if (array_key_exists('popup_win_width', $clcs_options)) echo $clcs_options['popup_win_width']; else echo '0'; ?>" name="popup_win_width" style="width:30%">
@@ -266,7 +307,7 @@ function clcs_options_admin_page() {
 
 // scan directory & get all files
 function cs_get_all_smilies() {
-    if ($handle = opendir('../wp-includes/images/smilies')) {
+    if ($handle = opendir(clcs_get_smilies_dir())) {
         while (false !== ($file = readdir($handle))) {
             // no . nor ..
             if ($file != '.' && $file != '..') {
@@ -347,7 +388,7 @@ function csm_comment_form() {
 // return all smilies
 function cs_all_smilies() {
 	global $wpsmiliestrans;
-	$url = get_bloginfo('wpurl').'/wp-includes/images/smilies';
+	$url = clcs_get_smilies_path();
 	foreach ($wpsmiliestrans as $k => $v) {
 		$smilies[$k] = "$url/$v";
 	}
@@ -419,7 +460,7 @@ function clcs_print_smilies($comment_textarea = 'comment') {
     </script>
 <?php
     $smilies = cs_load_existing_smilies();
-    $url = get_bloginfo('wpurl').'/wp-includes/images/smilies';
+    $url = clcs_get_smilies_path();
     $list = get_option('cs_list');            
 
     if ($list == '') {
