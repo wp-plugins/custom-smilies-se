@@ -24,19 +24,19 @@ function clcs_add_common_scripts() {
 </style>
 <script type="text/javascript">
 function allPrpos(obj) { 
-    // ÓÃÀ´±£´æËùÓÐµÄÊôÐÔÃû³ÆºÍÖµ
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æºï¿½Öµ
     var props = "";
-    // ¿ªÊ¼±éÀú
+    // ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½
     for(var p in obj){ 
-        // ·½·¨
+        // ï¿½ï¿½ï¿½ï¿½
         if(typeof(obj[p])=="function"){ 
             obj[p]();
         }else{ 
-            // p ÎªÊôÐÔÃû³Æ£¬obj[p]Îª¶ÔÓ¦ÊôÐÔµÄÖµ
+            // p Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ£ï¿½obj[p]Îªï¿½ï¿½Ó¦ï¿½ï¿½ï¿½Ôµï¿½Öµ
             props+= p + "=" + obj[p] + "\t";
         } 
     } 
-    // ×îºóÏÔÊ¾ËùÓÐµÄÊôÐÔ
+    // ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½
     alert(props);
 }
 function mousePosition(ev) {
@@ -105,7 +105,7 @@ function smilies_win_show(ev, target) {
 	}
 	if (target == "post") {
 		<?php //global $user_ID; $rich_editing_flag = get_usermeta($user_ID, 'rich_editing'); ?>
-		if (jQuery("#quicktags").css("display") == "block") {
+		if (jQuery("#quicktags").css("display") == "block" || jQuery("#ed_toolbar").css("display") == "block") {
 			jQuery("#smiliesdiv").html("<div style=\"text-align: right; margin-bottom: 5px;\"><a href=\"javascript: smilies_win_hide();void(0);\"><?php _e('Close', 'custom_smilies') ?></a></div>" + smilies_list4post);
 		} else {
 			jQuery("#smiliesdiv").html("<div style=\"text-align: right; margin-bottom: 5px;\"><a href=\"javascript: smilies_win_hide();void(0);\"><?php _e('Close', 'custom_smilies') ?></a></div>" + smilies_list4wysiwyg);
